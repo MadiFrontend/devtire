@@ -22,12 +22,12 @@ export function FeedbackForm() {
       </div>
 
       {done ? (
-        <div className="rounded-2xl border border-accent/30 bg-accent/10 p-6 text-sm">
+        <div className="rounded-xl border border-accent/30 bg-accent/10 p-6 text-sm">
           {t("success")}
         </div>
       ) : (
         <form
-          className="space-y-4 rounded-2xl border border-border/80 bg-card p-6 shadow-sm"
+          className="space-y-4 rounded-xl border border-border/80 bg-card p-6 shadow-sm"
           onSubmit={(e) => {
             e.preventDefault();
             if (!message.trim()) return;

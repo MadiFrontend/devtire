@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Frontend Interview",
-    "description": "Practice frontend interview questions — HTML, CSS, JavaScript, React and more"
+    "description": "Practice frontend interview questions: HTML, CSS, JavaScript, React and more"
   },
   "nav": {
     "home": "Home",
@@ -12,7 +12,7 @@
   "home": {
     "brand": "FE Interview",
     "headline": "Frontend interview prep",
-    "sub": "Multiple-choice questions across Junior, Middle, and Senior — with instant feedback and full explanations.",
+    "sub": "Multiple-choice questions across Junior, Middle, and Senior, with instant feedback and full explanations.",
     "categories": "Categories",
     "questions": "questions",
     "start": "Start"
@@ -51,7 +51,7 @@
   },
   "feedback": {
     "title": "Send feedback",
-    "subtitle": "Ideas, bugs, or new question suggestions — we'd love to hear from you.",
+    "subtitle": "Ideas, bugs, or new question suggestions? We'd love to hear from you.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -72,6 +72,7 @@
     "system": "System"
   },
   "footer": {
-    "text": "Frontend interview practice — progress saved on your device"
+    "text": "Progress is saved on your device",
+    "madeBy": "Made by"
   }
 }

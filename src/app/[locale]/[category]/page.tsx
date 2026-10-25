@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: Props) {
             <Link
               key={level}
               href={`/${categoryId}/${level}` as "/"}
-              className="rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition-colors duration-150 hover:border-accent/50"
+              className="rounded-xl border border-border/80 bg-card p-6 shadow-sm transition-colors duration-150 hover:border-accent/50"
             >
               <Badge variant={meta[level].variant}>{meta[level].label}</Badge>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">

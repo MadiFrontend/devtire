@@ -35,6 +35,22 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Deterministic per-seed shuffle, so server and client render the same order. */
+function seededShuffle<T>(arr: T[], seed: string): T[] {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h = Math.imul(h ^ seed.charCodeAt(i), 16777619);
+  }
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    h = Math.imul(h ^ (h >>> 15), 2246822507);
+    h ^= h >>> 13;
+    const j = (h >>> 0) % (i + 1);
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function Flashcard({
   questions,
   category,
@@ -70,6 +86,11 @@ export function Flashcard({
     [bookmarks, current],
   );
 
+  const options = useMemo(
+    () => (current ? seededShuffle(current.options, current.id) : []),
+    [current],
+  );
+
   const answered = selectedId !== null;
   const isCorrect = answered && selectedId === current?.correctOptionId;
 
@@ -81,7 +102,7 @@ export function Flashcard({
 
   if (!questions.length || !current) {
     return (
-      <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+      <div className="rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
         {t("empty")}
       </div>
     );
@@ -133,7 +154,7 @@ export function Flashcard({
 
         <article
           key={current.id}
-          className="animate-fade-in rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
+          className="animate-fade-in rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
         >
           <div className="mb-4 flex flex-wrap items-center gap-2">
             <Badge variant={level}>{level}</Badge>
@@ -162,7 +183,7 @@ export function Flashcard({
           )}
 
           <div className="mt-5 space-y-2.5" role="radiogroup" aria-label={t("pickOption")}>
-            {current.options.map((option, i) => {
+            {options.map((option, i) => {
               const letter = String.fromCharCode(65 + i);
               const isSelected = selectedId === option.id;
               const isRight = option.id === current.correctOptionId;

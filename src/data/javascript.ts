@@ -86,9 +86,9 @@ console.log(b); // ReferenceError
     correctOptionId: "c",
     answer: {
       fa: `هفت primitive: \`string\`, \`number\`, \`bigint\`, \`boolean\`, \`undefined\`, \`symbol\`, \`null\`.
-آرایه object است. \`typeof null\` برابر \`"object"\` است — quirk تاریخی.`,
+آرایه object است. \`typeof null\` برابر \`"object"\` است: quirk تاریخی.`,
       en: `Seven primitives: \`string\`, \`number\`, \`bigint\`, \`boolean\`, \`undefined\`, \`symbol\`, \`null\`.
-Arrays are objects. \`typeof null\` is \`"object"\` — a historical quirk.`,
+Arrays are objects. \`typeof null\` is \`"object"\`: a historical quirk.`,
     },
   },
   {

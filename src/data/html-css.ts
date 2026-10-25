@@ -339,8 +339,8 @@ Prefer \`transform\`/\`opacity\` for animation.`,
     ],
     correctOptionId: "b",
     answer: {
-      fa: `برخلاف media query مبتنی بر viewport، container query به عرض والد واکنش می‌دهد — طراحی کامپوننت‌محور.`,
-      en: `Unlike viewport media queries, container queries react to parent width — component-driven design.`,
+      fa: `برخلاف media query مبتنی بر viewport، container query به عرض والد واکنش می‌دهد: طراحی کامپوننت‌محور.`,
+      en: `Unlike viewport media queries, container queries react to parent width: component-driven design.`,
     },
   },
   {

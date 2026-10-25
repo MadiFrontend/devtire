@@ -8,19 +8,37 @@ import { nextjsQuestions } from "./nextjs";
 import { stateManagementQuestions } from "./state-management";
 import { designPatternsQuestions } from "./design-patterns";
 import { systemDesignQuestions } from "./system-design";
+import { javascriptMore } from "./more/javascript";
+import { htmlCssMore } from "./more/html-css";
+import { reactMore } from "./more/react";
+import { typescriptMore } from "./more/typescript";
+import { nextjsMore } from "./more/nextjs";
+import { stateManagementMore } from "./more/state-management";
+import { designPatternsMore } from "./more/design-patterns";
+import { systemDesignMore } from "./more/system-design";
+import { extraQuestions } from "./extra";
 
 export * from "./types";
 export * from "./categories";
 
 export const allQuestions: Question[] = [
   ...htmlCssQuestions,
+  ...htmlCssMore,
   ...javascriptQuestions,
+  ...javascriptMore,
   ...typescriptQuestions,
+  ...typescriptMore,
   ...reactQuestions,
+  ...reactMore,
   ...stateManagementQuestions,
+  ...stateManagementMore,
   ...nextjsQuestions,
+  ...nextjsMore,
   ...designPatternsQuestions,
+  ...designPatternsMore,
   ...systemDesignQuestions,
+  ...systemDesignMore,
+  ...extraQuestions,
 ];
 
 export function getQuestionsByCategory(categoryId: string): Question[] {

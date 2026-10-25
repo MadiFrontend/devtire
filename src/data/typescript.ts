@@ -177,8 +177,8 @@ export const typescriptQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `مثال: \`function identity<T>(v: T): T\` — ورودی و خروجی هم‌نوع می‌مانند.`,
-      en: `Example: \`function identity<T>(v: T): T\` — input/output stay typed together.`,
+      fa: `مثال: \`function identity<T>(v: T): T\`: ورودی و خروجی هم‌نوع می‌مانند.`,
+      en: `Example: \`function identity<T>(v: T): T\`: input/output stay typed together.`,
     },
   },
   {

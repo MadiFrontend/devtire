@@ -22,8 +22,8 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
         <div className="flex items-center justify-between gap-3">
           <Link href="/" className="group flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-sm font-bold text-accent-foreground shadow-sm">
-              FE
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-mono text-sm font-bold text-accent-foreground">
+              {"</>"}
             </span>
             <span className="font-display text-lg font-semibold tracking-tight">
               Interview

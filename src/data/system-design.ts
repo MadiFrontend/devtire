@@ -42,8 +42,8 @@ export const systemDesignQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `LCP حس لود، INP پاسخ‌گویی تعامل، CLS پایداری بصری — روی SEO و UX اثر دارند.`,
-      en: `LCP = loading feel, INP = interaction responsiveness, CLS = visual stability — they affect SEO and UX.`,
+      fa: `LCP حس لود، INP پاسخ‌گویی تعامل، CLS پایداری بصری: روی SEO و UX اثر دارند.`,
+      en: `LCP = loading feel, INP = interaction responsiveness, CLS = visual stability: they affect SEO and UX.`,
     },
   },
   {
@@ -267,8 +267,8 @@ export const systemDesignQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `هزینه: integration، consistency UI، deps تکراری، ops — برای تیم کوچک اغلب overkill.`,
-      en: `Cost: integration, UI consistency, duplicate deps, ops — often overkill for a small team.`,
+      fa: `هزینه: integration، consistency UI، deps تکراری، ops: برای تیم کوچک اغلب overkill.`,
+      en: `Cost: integration, UI consistency, duplicate deps, ops: often overkill for a small team.`,
     },
   },
   {

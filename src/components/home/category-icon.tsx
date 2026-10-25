@@ -35,7 +35,7 @@ export function CategoryIcon({
   return (
     <span
       className={cn(
-        "flex h-12 w-12 items-center justify-center rounded-2xl",
+        "flex h-12 w-12 items-center justify-center rounded-xl",
         className,
       )}
       style={{

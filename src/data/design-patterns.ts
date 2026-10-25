@@ -108,8 +108,8 @@ export const designPatternsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `منطق share می‌شود و رندر به بیرون واگذار می‌گردد — شبیه \`children\` به‌صورت تابع.`,
-      en: `Logic is shared while rendering is delegated — often as a function \`children\`.`,
+      fa: `منطق share می‌شود و رندر به بیرون واگذار می‌گردد: شبیه \`children\` به‌صورت تابع.`,
+      en: `Logic is shared while rendering is delegated: often as a function \`children\`.`,
     },
   },
   {
@@ -153,8 +153,8 @@ export const designPatternsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `مثل \`Select\` + \`Select.Option\` — API شبیه HTML بومی و کنترل layout در دست مصرف‌کننده.`,
-      en: `Like \`Select\` + \`Select.Option\` — HTML-like API with layout control for the consumer.`,
+      fa: `مثل \`Select\` + \`Select.Option\`: API شبیه HTML بومی و کنترل layout در دست مصرف‌کننده.`,
+      en: `Like \`Select\` + \`Select.Option\`: HTML-like API with layout control for the consumer.`,
     },
   },
   {
@@ -198,8 +198,8 @@ export const designPatternsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `Uncontrolled با \`ref\`/defaultValue در DOM است — برای فرم ساده/عملکرد.`,
-      en: `Uncontrolled uses \`ref\`/defaultValue in the DOM — good for simple/perf forms.`,
+      fa: `Uncontrolled با \`ref\`/defaultValue در DOM است: برای فرم ساده/عملکرد.`,
+      en: `Uncontrolled uses \`ref\`/defaultValue in the DOM: good for simple/perf forms.`,
     },
   },
   {
@@ -333,8 +333,8 @@ export const designPatternsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `لایه‌های بالاتر به پایین‌تر وابسته‌اند نه برعکس — coupling کمتر، ownership واضح‌تر.`,
-      en: `Higher layers depend on lower ones, not vice versa — less coupling, clearer ownership.`,
+      fa: `لایه‌های بالاتر به پایین‌تر وابسته‌اند نه برعکس: coupling کمتر، ownership واضح‌تر.`,
+      en: `Higher layers depend on lower ones, not vice versa: less coupling, clearer ownership.`,
     },
   },
   {
@@ -378,8 +378,8 @@ export const designPatternsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `ایدهٔ CQRS در مقیاس کوچک UI — از مدل همه‌کارهٔ شکننده اجتناب می‌کند.`,
-      en: `CQRS ideas at a small UI scale — avoids a brittle do-everything model.`,
+      fa: `ایدهٔ CQRS در مقیاس کوچک UI: از مدل همه‌کارهٔ شکننده اجتناب می‌کند.`,
+      en: `CQRS ideas at a small UI scale: avoids a brittle do-everything model.`,
     },
   },
 ];

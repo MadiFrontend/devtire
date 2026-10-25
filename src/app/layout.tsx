@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · FE Interview",
   },
   description:
-    "Practice frontend interview questions — HTML, CSS, JavaScript, React and more",
+    "Practice frontend interview questions: HTML, CSS, JavaScript, React and more",
 };
 
 export default function RootLayout({

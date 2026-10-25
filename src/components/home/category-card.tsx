@@ -26,8 +26,13 @@ export function CategoryCard({
   return (
     <Link
       href={`/${category.id}` as "/"}
-      className="group flex h-full flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-sm transition-colors duration-150 hover:border-accent/50"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/80 bg-card p-5 transition-colors duration-150 hover:border-accent/50"
     >
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-1"
+        style={{ backgroundColor: category.color }}
+      />
       <div className="flex items-start justify-between gap-3">
         <CategoryIcon name={category.icon} color={category.color} />
         <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">

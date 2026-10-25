@@ -12,9 +12,9 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <div className="space-y-10">
-      <section className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/70 px-6 py-10 sm:px-10 sm:py-14">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,color-mix(in_srgb,var(--accent)_8%,transparent))]" />
-        <p className="relative font-display text-sm font-semibold tracking-[0.18em] text-accent uppercase">
+      <section className="relative overflow-hidden rounded-xl border border-border/70 bg-card px-6 py-10 sm:px-10 sm:py-14">
+        <div className="bg-dots pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+        <p className="relative inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-xs font-semibold text-accent">
           {t("brand")}
         </p>
         <h1 className="relative mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-5xl">

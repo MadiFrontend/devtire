@@ -178,7 +178,7 @@ export const reactQuestions: Question[] = [
     correctOptionId: "a",
     answer: {
       fa: `برای side effect بیرونی؛ نه مشتق کردن state از state. dependency array و cleanup مهم‌اند.`,
-      en: `For external side effects — not deriving state from state. Dependencies and cleanup matter.`,
+      en: `For external side effects: not deriving state from state. Dependencies and cleanup matter.`,
     },
   },
   {
@@ -267,8 +267,8 @@ export const reactQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `\`memo\` / \`useMemo\` / \`useCallback\` برای بهینه‌سازی هدفمنداند — بدون اندازه‌گیری premature هستند.`,
-      en: `\`memo\` / \`useMemo\` / \`useCallback\` are targeted optimizations — premature without measurement.`,
+      fa: `\`memo\` / \`useMemo\` / \`useCallback\` برای بهینه‌سازی هدفمنداند: بدون اندازه‌گیری premature هستند.`,
+      en: `\`memo\` / \`useMemo\` / \`useCallback\` are targeted optimizations: premature without measurement.`,
     },
   },
   {
@@ -402,8 +402,8 @@ export const reactQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `Fiber درخت را به واحد کار می‌شکند تا رندر اولویت‌بندی و وقفه‌پذیر شود — پایه concurrent و Suspense.`,
-      en: `Fiber splits the tree into units of work so rendering can be prioritized and interrupted — foundation of concurrent features and Suspense.`,
+      fa: `Fiber درخت را به واحد کار می‌شکند تا رندر اولویت‌بندی و وقفه‌پذیر شود: پایه concurrent و Suspense.`,
+      en: `Fiber splits the tree into units of work so rendering can be prioritized and interrupted: foundation of concurrent features and Suspense.`,
     },
   },
 ];

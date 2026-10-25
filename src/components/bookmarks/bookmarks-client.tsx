@@ -27,7 +27,7 @@ export function BookmarksClient() {
       <h1 className="font-display text-3xl font-bold tracking-tight">{t("title")}</h1>
 
       {items.length === 0 ? (
-        <p className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+        <p className="rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
           {t("empty")}
         </p>
       ) : (
@@ -37,7 +37,7 @@ export function BookmarksClient() {
             return (
               <li
                 key={q.id}
-                className="flex flex-col gap-3 rounded-2xl border border-border/80 bg-card p-5 sm:flex-row sm:items-center sm:justify-between"
+                className="flex flex-col gap-3 rounded-xl border border-border/80 bg-card p-5 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
                   <div className="mb-2 flex flex-wrap gap-2">

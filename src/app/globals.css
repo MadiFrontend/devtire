@@ -2,38 +2,38 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #f6f4ef;
-  --foreground: #1c1917;
-  --card: #fffcf7;
-  --card-foreground: #1c1917;
-  --muted: #ebe6dc;
-  --muted-foreground: #6b645a;
-  --border: #ddd5c8;
-  --primary: #1c1917;
-  --primary-foreground: #faf7f2;
-  --secondary: #ebe6dc;
-  --secondary-foreground: #1c1917;
-  --accent: #0f766e;
-  --accent-foreground: #f0fdfa;
-  --ring: #0f766e;
-  --radius: 1rem;
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --muted: #e8ecf4;
+  --muted-foreground: #5b6478;
+  --border: #dbe1ec;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --secondary: #e8ecf4;
+  --secondary-foreground: #0f172a;
+  --accent: #4f46e5;
+  --accent-foreground: #eef2ff;
+  --ring: #4f46e5;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: #121110;
-  --foreground: #f5f0e8;
-  --card: #1a1816;
-  --card-foreground: #f5f0e8;
-  --muted: #2a2622;
-  --muted-foreground: #a89f93;
-  --border: #3a342c;
-  --primary: #f5f0e8;
-  --primary-foreground: #1c1917;
-  --secondary: #2a2622;
-  --secondary-foreground: #f5f0e8;
-  --accent: #2dd4bf;
-  --accent-foreground: #042f2e;
-  --ring: #2dd4bf;
+  --background: #0b0f19;
+  --foreground: #e6e9f2;
+  --card: #121827;
+  --card-foreground: #e6e9f2;
+  --muted: #1c2333;
+  --muted-foreground: #9aa3b8;
+  --border: #263044;
+  --primary: #e6e9f2;
+  --primary-foreground: #0b0f19;
+  --secondary: #1c2333;
+  --secondary-foreground: #e6e9f2;
+  --accent: #818cf8;
+  --accent-foreground: #1e1b4b;
+  --ring: #818cf8;
 }
 
 @theme inline {
@@ -62,6 +62,14 @@ body {
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
+}
+
+.bg-dots {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--accent) 18%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
 }
 
 .font-display {

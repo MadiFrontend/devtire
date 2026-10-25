@@ -87,8 +87,8 @@ export const nextjsQuestions: Question[] = [
     ],
     correctOptionId: "a",
     answer: {
-      fa: `CSR در مرورگر، SSR در هر request، SSG در build — اغلب hybrid در App Router.`,
-      en: `CSR in browser, SSR per request, SSG at build — often hybrid in App Router.`,
+      fa: `CSR در مرورگر، SSR در هر request، SSG در build: اغلب hybrid در App Router.`,
+      en: `CSR in browser, SSR per request, SSG at build: often hybrid in App Router.`,
     },
   },
   {

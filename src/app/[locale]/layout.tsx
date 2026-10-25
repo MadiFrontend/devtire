@@ -124,7 +124,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 "@id": `${absoluteUrl()}/#author`,
                 name: siteConfig.author.name,
                 url: siteConfig.author.url,
-                sameAs: [siteConfig.author.url],
+                sameAs: [siteConfig.author.url, siteConfig.author.github],
               },
             ],
           }}

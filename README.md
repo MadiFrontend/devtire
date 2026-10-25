@@ -52,4 +52,4 @@ Questions live in `src/data/`. The files in `src/data/extra/` use a compact form
 
 ## Author
 
-Made by [Mahdi Hosseini](https://github.com/MadiFrontend).
+Made by [Mahdi Hosseini](https://mahdihosseini.site/) ([GitHub](https://github.com/MadiFrontend)).

@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Frontend Interview",
+    "description": "Practice frontend interview questions — HTML, CSS, JavaScript, React and more"
+  },
+  "nav": {
+    "home": "Home",
+    "bookmarks": "Bookmarks",
+    "feedback": "Feedback",
+    "search": "Search questions..."
+  },
+  "home": {
+    "brand": "FE Interview",
+    "headline": "Frontend interview prep",
+    "sub": "Multiple-choice questions across Junior, Middle, and Senior — with instant feedback and full explanations.",
+    "categories": "Categories",
+    "questions": "questions",
+    "start": "Start"
+  },
+  "levels": {
+    "title": "Choose a level",
+    "junior": "Junior",
+    "middle": "Middle",
+    "senior": "Senior",
+    "juniorDesc": "Core fundamentals you must know",
+    "middleDesc": "Deeper concepts and real scenarios",
+    "seniorDesc": "Architecture, performance, and hard trade-offs",
+    "count": "{count} questions",
+    "back": "Back to categories"
+  },
+  "practice": {
+    "next": "Next",
+    "prev": "Previous",
+    "shuffle": "Shuffle",
+    "bookmark": "Bookmark",
+    "bookmarked": "Bookmarked",
+    "of": "{current} of {total}",
+    "progress": "Progress",
+    "empty": "No questions in this level yet.",
+    "tags": "Tags",
+    "resetProgress": "Reset progress",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "explanation": "Explanation",
+    "pickOption": "Pick an option"
+  },
+  "bookmarks": {
+    "title": "Bookmarked questions",
+    "empty": "No bookmarks yet. Tap the bookmark icon while practicing.",
+    "open": "Open practice"
+  },
+  "feedback": {
+    "title": "Send feedback",
+    "subtitle": "Ideas, bugs, or new question suggestions — we'd love to hear from you.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit",
+    "success": "Thanks! Your feedback was saved locally.",
+    "placeholderName": "e.g. Alex",
+    "placeholderEmail": "you@example.com",
+    "placeholderMessage": "What should we improve?"
+  },
+  "search": {
+    "title": "Search results",
+    "empty": "No results found.",
+    "hint": "Type at least 2 characters."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "footer": {
+    "text": "Frontend interview practice — progress saved on your device"
+  }
+}

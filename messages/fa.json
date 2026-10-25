@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "مصاحبه فرانت‌اند",
+    "description": "تمرین سؤالات مصاحبه فرانت‌اند — HTML، CSS، JavaScript، React و بیشتر"
+  },
+  "nav": {
+    "home": "خانه",
+    "bookmarks": "نشان‌شده‌ها",
+    "feedback": "بازخورد",
+    "search": "جستجو در سؤالات..."
+  },
+  "home": {
+    "brand": "FE Interview",
+    "headline": "آماده‌سازی مصاحبه فرانت‌اند",
+    "sub": "سؤالات چندگزینه‌ای در سه سطح Junior، Middle و Senior — با بازخورد فوری و توضیح کامل.",
+    "categories": "دسته‌بندی‌ها",
+    "questions": "سؤال",
+    "start": "شروع"
+  },
+  "levels": {
+    "title": "انتخاب سطح",
+    "junior": "جونیور",
+    "middle": "میدل",
+    "senior": "سینیور",
+    "juniorDesc": "مفاهیم پایه و ضروری",
+    "middleDesc": "عمق بیشتر و سناریوهای واقعی",
+    "seniorDesc": "معماری، عملکرد و تصمیم‌های سخت",
+    "count": "{count} سؤال",
+    "back": "بازگشت به دسته‌ها"
+  },
+  "practice": {
+    "next": "بعدی",
+    "prev": "قبلی",
+    "shuffle": "شافل",
+    "bookmark": "نشان کردن",
+    "bookmarked": "نشان‌شده",
+    "of": "{current} از {total}",
+    "progress": "پیشرفت",
+    "empty": "هنوز سؤالی در این سطح نیست.",
+    "tags": "برچسب‌ها",
+    "resetProgress": "بازنشانی پیشرفت",
+    "correct": "درست!",
+    "incorrect": "اشتباه",
+    "explanation": "توضیح",
+    "pickOption": "یک گزینه را انتخاب کنید"
+  },
+  "bookmarks": {
+    "title": "سؤالات نشان‌شده",
+    "empty": "هنوز سؤالی نشان نکرده‌اید. هنگام تمرین، آیکون نشان را بزنید.",
+    "open": "باز کردن تمرین"
+  },
+  "feedback": {
+    "title": "ارسال بازخورد",
+    "subtitle": "نظر، باگ یا پیشنهاد سؤال جدید — خوشحال می‌شویم بشنویم.",
+    "name": "نام",
+    "email": "ایمیل",
+    "message": "پیام",
+    "submit": "ارسال",
+    "success": "ممنون! بازخورد شما ذخیره شد (محلی).",
+    "placeholderName": "مثلاً مانی",
+    "placeholderEmail": "you@example.com",
+    "placeholderMessage": "چه چیزی بهتر شود؟"
+  },
+  "search": {
+    "title": "نتایج جستجو",
+    "empty": "نتیجه‌ای پیدا نشد.",
+    "hint": "حداقل ۲ کاراکتر بنویسید."
+  },
+  "theme": {
+    "light": "روشن",
+    "dark": "تاریک",
+    "system": "سیستم"
+  },
+  "footer": {
+    "text": "تمرین مصاحبه فرانت‌اند — ذخیره پیشرفت روی دستگاه شما"
+  }
+}

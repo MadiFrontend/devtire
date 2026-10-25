@@ -28,13 +28,8 @@ export default async function HomePage({ params }: Props) {
       <section>
         <h2 className="mb-5 font-display text-xl font-semibold">{t("categories")}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {stats.map((cat, i) => (
-            <CategoryCard
-              key={cat.id}
-              category={cat}
-              counts={cat.counts}
-              index={i}
-            />
+          {stats.map((cat) => (
+            <CategoryCard key={cat.id} category={cat} counts={cat.counts} />
           ))}
         </div>
       </section>

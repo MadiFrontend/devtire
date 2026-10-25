@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: Props) {
     <div className="space-y-8">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
+        className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-4 rtl:rotate-180" />
         {t("back")}
@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: Props) {
             <Link
               key={level}
               href={`/${categoryId}/${level}` as "/"}
-              className="group rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+              className="rounded-2xl border border-border/80 bg-card p-6 shadow-sm transition-colors duration-150 hover:border-accent/50"
             >
               <Badge variant={meta[level].variant}>{meta[level].label}</Badge>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -74,7 +74,7 @@ export default async function CategoryPage({ params }: Props) {
               </p>
               <p className="mt-6 text-sm font-medium text-accent">
                 {t("count", { count: counts[level] })}
-                <span className="ms-1 inline-block transition group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">
+                <span className="ms-1 inline-block rtl:-scale-x-100">
                   →
                 </span>
               </p>

@@ -86,7 +86,7 @@ export function SearchBar() {
                           setOpen(false);
                           setQuery("");
                         }}
-                        className="block px-4 py-3 transition hover:bg-muted/70"
+                        className="block px-4 py-3 transition-colors hover:bg-muted/70"
                       >
                         <div className="mb-1 flex flex-wrap items-center gap-2">
                           <Badge variant={q.level}>{q.level}</Badge>

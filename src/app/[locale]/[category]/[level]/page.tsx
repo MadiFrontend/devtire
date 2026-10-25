@@ -30,7 +30,7 @@ export default async function PracticePage({ params }: Props) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`/${categoryId}` as "/"}
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="size-4 rtl:rotate-180" />
           {category.name[loc]}

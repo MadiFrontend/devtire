@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import {
   Bookmark,
@@ -132,14 +131,9 @@ export function Flashcard({
         </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.article
+        <article
           key={current.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.22 }}
-          className="rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
+          className="animate-fade-in rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
         >
           <div className="mb-4 flex flex-wrap items-center gap-2">
             <Badge variant={level}>{level}</Badge>
@@ -183,7 +177,7 @@ export function Flashcard({
                   disabled={answered}
                   onClick={() => setSelectedId(option.id)}
                   className={cn(
-                    "flex w-full items-start gap-3 rounded-xl border px-4 py-3.5 text-start text-sm transition sm:text-[15px]",
+                    "flex w-full items-start gap-3 rounded-xl border px-4 py-3.5 text-start text-sm transition-colors duration-150 sm:text-[15px]",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                     !showState &&
                       "border-border/80 bg-background hover:border-accent/50 hover:bg-muted/40",
@@ -226,17 +220,10 @@ export function Flashcard({
             })}
           </div>
 
-          <AnimatePresence>
             {answered && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="overflow-hidden"
-              >
                 <div
                   className={cn(
-                    "mt-5 rounded-xl border p-4 sm:p-5",
+                    "animate-fade-in mt-5 rounded-xl border p-4 sm:p-5",
                     isCorrect
                       ? "border-emerald-500/30 bg-emerald-500/10"
                       : "border-rose-500/30 bg-rose-500/10",
@@ -258,11 +245,8 @@ export function Flashcard({
                   </p>
                   <RichText content={current.answer[locale]} />
                 </div>
-              </motion.div>
             )}
-          </AnimatePresence>
-        </motion.article>
-      </AnimatePresence>
+        </article>
 
       <div className="flex items-center justify-between gap-3">
         <Button

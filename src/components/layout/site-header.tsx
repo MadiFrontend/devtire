@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { LocaleSwitcher } from "./locale-switcher";
 import { ThemeToggle } from "./theme-toggle";
 import { SearchBar } from "@/components/search/search-bar";
+import { Logo } from "@/components/brand/logo";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
@@ -21,13 +22,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
         <div className="flex items-center justify-between gap-3">
-          <Link href="/" className="group flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent font-mono text-sm font-bold text-accent-foreground">
-              {"</>"}
-            </span>
-            <span className="font-display text-lg font-semibold tracking-tight">
-              Interview
-            </span>
+          <Link href="/" aria-label="DevTier home">
+            <Logo />
           </Link>
           <div className="flex items-center gap-1 sm:hidden">
             <LocaleSwitcher />

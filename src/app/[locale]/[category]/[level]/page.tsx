@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { getCategory, getQuestions } from "@/data";
 import { Flashcard } from "@/components/practice/flashcard";
+import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 import type { Level } from "@/data/types";
 import type { Locale } from "@/i18n/routing";
 
@@ -12,6 +16,34 @@ type Props = {
 };
 
 const validLevels: Level[] = ["junior", "middle", "senior"];
+
+export function generateStaticParams() {
+  return validLevels.map((level) => ({ level }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, category: categoryId, level } = await params;
+  const category = getCategory(categoryId);
+  if (!category || !validLevels.includes(level as Level)) return {};
+  const loc = locale as Locale;
+  const t = await getTranslations({ locale, namespace: "seo" });
+  const tLevels = await getTranslations({ locale, namespace: "levels" });
+  const name = category.name[loc];
+  const levelLabel = tLevels(level as Level);
+  const count = getQuestions(categoryId, level as Level).length;
+  return pageMetadata({
+    locale: loc,
+    path: `/${categoryId}/${level}`,
+    ogImagePath: `/${categoryId}/${level}`,
+    title: t("levelTitle", { name, level: levelLabel, count }),
+    description: t("levelDescription", {
+      name,
+      level: levelLabel,
+      count,
+      tags: category.tags.join(", "),
+    }),
+  });
+}
 
 export default async function PracticePage({ params }: Props) {
   const { locale, category: categoryId, level } = await params;
@@ -23,10 +55,71 @@ export default async function PracticePage({ params }: Props) {
 
   const questions = getQuestions(categoryId, level as Level);
   const t = await getTranslations("levels");
+  const tSeo = await getTranslations("seo");
   const loc = locale as Locale;
+  const pageUrl = absoluteUrl(`/${locale}/${categoryId}/${level}`);
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: tSeo("home"),
+                  item: absoluteUrl(`/${locale}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: category.name[loc],
+                  item: absoluteUrl(`/${locale}/${categoryId}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: t(level as Level),
+                  item: pageUrl,
+                },
+              ],
+            },
+            {
+              "@type": "Quiz",
+              name: tSeo("levelTitle", {
+                name: category.name[loc],
+                level: t(level as Level),
+                count: questions.length,
+              }),
+              url: pageUrl,
+              inLanguage: locale,
+              educationalLevel: level,
+              about: { "@type": "Thing", name: category.name.en },
+              hasPart: questions.map((q) => {
+                const correct = q.options.find((o) => o.id === q.correctOptionId);
+                return {
+                  "@type": "Question",
+                  eduQuestionType: "Multiple choice",
+                  learningResourceType: "Practice problem",
+                  text: q.question[loc],
+                  suggestedAnswer: q.options
+                    .filter((o) => o.id !== q.correctOptionId)
+                    .map((o) => ({ "@type": "Answer", text: o.text[loc] })),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: correct?.text[loc],
+                    answerExplanation: { "@type": "Comment", text: q.answer[loc] },
+                  },
+                };
+              }),
+            },
+          ],
+        }}
+      />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`/${categoryId}` as "/"}
@@ -35,9 +128,9 @@ export default async function PracticePage({ params }: Props) {
           <ArrowLeft className="size-4 rtl:rotate-180" />
           {category.name[loc]}
         </Link>
-        <p className="text-sm text-muted-foreground">
-          {t(level as Level)} · {questions.length}
-        </p>
+        <h1 className="text-sm font-normal text-muted-foreground">
+          {category.name[loc]} · {t(level as Level)} · {questions.length}
+        </h1>
       </div>
 
       <Flashcard

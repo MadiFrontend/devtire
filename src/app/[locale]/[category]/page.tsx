@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { getCategory, getLevelCounts } from "@/data";
+import { categories, getCategory, getLevelCounts } from "@/data";
+import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 import { CategoryIcon } from "@/components/home/category-icon";
 import { Badge } from "@/components/ui/badge";
 import type { Level } from "@/data/types";
@@ -14,6 +18,29 @@ type Props = {
 
 const levels: Level[] = ["junior", "middle", "senior"];
 
+export function generateStaticParams() {
+  return categories.map((c) => ({ category: c.id }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, category: categoryId } = await params;
+  const category = getCategory(categoryId);
+  if (!category) return {};
+  const loc = locale as Locale;
+  const t = await getTranslations({ locale, namespace: "seo" });
+  const name = category.name[loc];
+  return pageMetadata({
+    locale: loc,
+    path: `/${categoryId}`,
+    ogImagePath: `/${categoryId}`,
+    title: t("categoryTitle", { name }),
+    description: t("categoryDescription", {
+      name,
+      count: getLevelCounts(categoryId).total,
+    }),
+  });
+}
+
 export default async function CategoryPage({ params }: Props) {
   const { locale, category: categoryId } = await params;
   setRequestLocale(locale);
@@ -21,6 +48,7 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   const t = await getTranslations("levels");
+  const tSeo = await getTranslations("seo");
   const counts = getLevelCounts(categoryId);
   const loc = locale as Locale;
 
@@ -32,6 +60,26 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div className="space-y-8">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: tSeo("home"),
+              item: absoluteUrl(`/${locale}`),
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: category.name[loc],
+              item: absoluteUrl(`/${locale}/${categoryId}`),
+            },
+          ],
+        }}
+      />
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"

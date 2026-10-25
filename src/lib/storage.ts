@@ -2,8 +2,9 @@
 
 import type { Level } from "@/data/types";
 
-const PROGRESS_KEY = "fe-interview:progress";
-const BOOKMARKS_KEY = "fe-interview:bookmarks";
+const PROGRESS_KEY = "devtier:progress";
+const BOOKMARKS_KEY = "devtier:bookmarks";
+const LEGACY_PREFIX = "fe-interview:";
 
 export type ProgressMap = Record<string, string[]>;
 
@@ -11,9 +12,19 @@ function levelKey(category: string, level: Level) {
   return `${category}:${level}`;
 }
 
+function migrateLegacy(key: string) {
+  if (localStorage.getItem(key) !== null) return;
+  const legacyKey = key.replace("devtier:", LEGACY_PREFIX);
+  const legacy = localStorage.getItem(legacyKey);
+  if (legacy === null) return;
+  localStorage.setItem(key, legacy);
+  localStorage.removeItem(legacyKey);
+}
+
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
   try {
+    migrateLegacy(key);
     const raw = localStorage.getItem(key);
     if (!raw) return fallback;
     return JSON.parse(raw) as T;
@@ -72,7 +83,7 @@ export type FeedbackEntry = {
   at: string;
 };
 
-const FEEDBACK_KEY = "fe-interview:feedback";
+const FEEDBACK_KEY = "devtier:feedback";
 
 export function saveFeedback(entry: Omit<FeedbackEntry, "at">) {
   const list = readJson<FeedbackEntry[]>(FEEDBACK_KEY, []);

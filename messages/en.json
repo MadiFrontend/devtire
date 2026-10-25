@@ -1,7 +1,8 @@
 {
   "meta": {
-    "title": "Frontend Interview",
-    "description": "Practice frontend interview questions: HTML, CSS, JavaScript, React and more"
+    "title": "DevTier: Frontend Interview Questions, Junior to Senior",
+    "description": "Practice 1,200 multiple-choice frontend interview questions on HTML, CSS, JavaScript, TypeScript, React, Next.js, state management, design patterns and system design, with instant feedback and clear explanations.",
+    "keywords": "frontend interview questions, javascript interview questions, react interview questions, typescript interview questions, next.js interview questions, html css interview questions, frontend system design, design patterns, state management, multiple choice quiz, junior developer, senior developer, interview prep"
   },
   "nav": {
     "home": "Home",
@@ -10,7 +11,7 @@
     "search": "Search questions..."
   },
   "home": {
-    "brand": "FE Interview",
+    "brand": "DevTier",
     "headline": "Frontend interview prep",
     "sub": "Multiple-choice questions across Junior, Middle, and Senior, with instant feedback and full explanations.",
     "categories": "Categories",
@@ -74,5 +75,16 @@
   "footer": {
     "text": "Progress is saved on your device",
     "madeBy": "Made by"
+  },
+  "seo": {
+    "categoryTitle": "{name} Interview Questions",
+    "categoryDescription": "{count} multiple-choice {name} interview questions for Junior, Middle and Senior developers, with instant feedback and detailed explanations.",
+    "levelTitle": "{level} {name} Interview Questions ({count} MCQs)",
+    "levelDescription": "Practice {count} {level}-level {name} interview questions. Pick an answer, see if it is right and read the explanation. Covers {tags}.",
+    "bookmarksTitle": "Bookmarked Questions",
+    "bookmarksDescription": "Your saved interview questions for later review.",
+    "feedbackTitle": "Feedback",
+    "feedbackDescription": "Share ideas, report bugs or suggest new interview questions for DevTier.",
+    "home": "Home"
   }
 }

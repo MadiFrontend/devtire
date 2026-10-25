@@ -22,8 +22,21 @@ export type Question = {
   answer: LocalizedString;
 };
 
+export type TrackStatus = "live" | "soon";
+
+export type TrackMeta = {
+  id: string;
+  icon: string;
+  color: string;
+  status: TrackStatus;
+  name: LocalizedString;
+  description: LocalizedString;
+  topics: string[];
+};
+
 export type CategoryMeta = {
   id: string;
+  track: string;
   icon: string;
   color: string;
   name: LocalizedString;

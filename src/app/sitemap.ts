@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { categories } from "@/data";
+import { categories, getTrack, tracks } from "@/data";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
 
@@ -12,16 +12,27 @@ type Entry = {
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const liveCategories = categories.filter(
+    (c) => getTrack(c.track)?.status === "live",
+  );
+
   const entries: Entry[] = [
     { path: "", priority: 1, changeFrequency: "weekly" },
-    ...categories.map((c) => ({
-      path: `/${c.id}`,
+    ...tracks
+      .filter((t) => t.status === "live")
+      .map((t) => ({
+        path: `/${t.id}`,
+        priority: 0.95,
+        changeFrequency: "weekly" as const,
+      })),
+    ...liveCategories.map((c) => ({
+      path: `/${c.track}/${c.id}`,
       priority: 0.9,
       changeFrequency: "weekly" as const,
     })),
-    ...categories.flatMap((c) =>
+    ...liveCategories.flatMap((c) =>
       levels.map((level) => ({
-        path: `/${c.id}/${level}`,
+        path: `/${c.track}/${c.id}/${level}`,
         priority: 0.8,
         changeFrequency: "weekly" as const,
       })),

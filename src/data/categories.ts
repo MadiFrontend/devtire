@@ -3,6 +3,7 @@ import type { CategoryMeta } from "./types";
 export const categories: CategoryMeta[] = [
   {
     id: "html-css",
+    track: "frontend",
     icon: "Layout",
     color: "#e34c26",
     name: { fa: "HTML و CSS", en: "HTML & CSS" },
@@ -14,6 +15,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "javascript",
+    track: "frontend",
     icon: "FileCode2",
     color: "#f7df1e",
     name: { fa: "جاوااسکریپت", en: "JavaScript" },
@@ -25,6 +27,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "typescript",
+    track: "frontend",
     icon: "Braces",
     color: "#3178c6",
     name: { fa: "تایپ‌اسکریپت", en: "TypeScript" },
@@ -36,6 +39,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "react",
+    track: "frontend",
     icon: "Atom",
     color: "#61dafb",
     name: { fa: "ری‌اکت", en: "React" },
@@ -47,6 +51,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "state-management",
+    track: "frontend",
     icon: "Boxes",
     color: "#764abc",
     name: { fa: "مدیریت State", en: "State Management" },
@@ -58,6 +63,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "nextjs",
+    track: "frontend",
     icon: "Triangle",
     color: "#000000",
     name: { fa: "نکست‌جی‌اس", en: "Next.js" },
@@ -69,6 +75,7 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "design-patterns",
+    track: "frontend",
     icon: "Puzzle",
     color: "#0d9488",
     name: { fa: "الگوهای طراحی", en: "Design Patterns" },
@@ -80,9 +87,10 @@ export const categories: CategoryMeta[] = [
   },
   {
     id: "system-design",
+    track: "frontend",
     icon: "Network",
     color: "#f59e0b",
-    name: { fa: "طراحی سیستم", en: "System Design" },
+    name: { fa: "طراحی سیستم فرانت‌اند", en: "Frontend System Design" },
     description: {
       fa: "معماری فرانت، مقیاس‌پذیری، عملکرد و تصمیم‌های تجاری",
       en: "Frontend architecture, scalability, performance & trade-offs",

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "DevTier: Frontend Interview Questions, Junior to Senior",
-    "description": "Practice 1,200 multiple-choice frontend interview questions on HTML, CSS, JavaScript, TypeScript, React, Next.js, state management, design patterns and system design, with instant feedback and clear explanations.",
-    "keywords": "frontend interview questions, javascript interview questions, react interview questions, typescript interview questions, next.js interview questions, html css interview questions, frontend system design, design patterns, state management, multiple choice quiz, junior developer, senior developer, interview prep"
+    "title": "DevTier: Software Engineering Interview Questions, Junior to Senior",
+    "description": "Practice software engineering interview questions by track: frontend, backend, system design, algorithms and more. Multiple-choice questions from Junior to Senior with instant feedback and clear explanations.",
+    "keywords": "software engineering interview questions, frontend interview questions, backend interview questions, system design interview, algorithms interview questions, data structures, javascript interview questions, react interview questions, typescript interview questions, next.js interview questions, multiple choice quiz, junior developer, senior developer, interview prep"
   },
   "nav": {
     "home": "Home",
@@ -12,11 +12,12 @@
   },
   "home": {
     "brand": "DevTier",
-    "headline": "Frontend interview prep",
-    "sub": "Multiple-choice questions across Junior, Middle, and Senior, with instant feedback and full explanations.",
+    "headline": "Software engineering interview prep",
+    "sub": "Pick a track, choose your level and practice multiple-choice questions with instant feedback and full explanations.",
     "categories": "Categories",
     "questions": "questions",
-    "start": "Start"
+    "start": "Start",
+    "tracks": "Tracks"
   },
   "levels": {
     "title": "Choose a level",
@@ -85,6 +86,21 @@
     "bookmarksDescription": "Your saved interview questions for later review.",
     "feedbackTitle": "Feedback",
     "feedbackDescription": "Share ideas, report bugs or suggest new interview questions for DevTier.",
-    "home": "Home"
+    "home": "Home",
+    "trackTitle": "{name} Interview Questions",
+    "trackDescription": "{count} multiple-choice {name} interview questions across {topics} topics, from Junior to Senior, with instant feedback and detailed explanations.",
+    "soonDescription": "{name} interview questions are coming soon to DevTier."
+  },
+  "tracks": {
+    "comingSoon": "Coming soon",
+    "live": "Available",
+    "back": "Back to tracks",
+    "categories": "Topics",
+    "questionCount": "{count} questions",
+    "categoryCount": "{count} topics",
+    "soonTitle": "This track is coming soon",
+    "soonText": "Questions for this track are being written. Meanwhile, you can practice the frontend track.",
+    "soonTopics": "What it will cover",
+    "goFrontend": "Practice frontend"
   }
 }

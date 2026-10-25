@@ -16,7 +16,7 @@ const levelNames: Record<Level, string> = {
 export default async function Image({
   params,
 }: {
-  params: Promise<{ locale: string; category: string; level: string }>;
+  params: Promise<{ locale: string; track: string; category: string; level: string }>;
 }) {
   const { category: categoryId, level } = await params;
   const category = getCategory(categoryId);

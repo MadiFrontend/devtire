@@ -1,11 +1,17 @@
 import {
   Atom,
+  Binary,
   Boxes,
   Braces,
+  Container,
   FileCode2,
+  Layers,
   Layout,
+  MessagesSquare,
+  Monitor,
   Network,
   Puzzle,
+  Server,
   Triangle,
   type LucideIcon,
 } from "lucide-react";
@@ -20,6 +26,12 @@ const icons: Record<string, LucideIcon> = {
   Triangle,
   Puzzle,
   Network,
+  Monitor,
+  Server,
+  Binary,
+  Layers,
+  Container,
+  MessagesSquare,
 };
 
 export function CategoryIcon({

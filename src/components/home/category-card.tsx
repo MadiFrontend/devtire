@@ -25,7 +25,7 @@ export function CategoryCard({
 
   return (
     <Link
-      href={`/${category.id}` as "/"}
+      href={`/${category.track}/${category.id}` as "/"}
       className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/80 bg-card p-5 transition-colors duration-150 hover:border-accent/50"
     >
       <span

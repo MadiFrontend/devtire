@@ -6,7 +6,7 @@ import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
-import { searchQuestions } from "@/data";
+import { practicePath, searchQuestions } from "@/data";
 import { getCategory } from "@/data/categories";
 import type { Locale } from "@/i18n/routing";
 
@@ -81,7 +81,7 @@ export function SearchBar() {
                   return (
                     <li key={q.id}>
                       <Link
-                        href={`/${q.category}/${q.level}` as "/"}
+                        href={practicePath(q.category, q.level) as "/"}
                         onClick={() => {
                           setOpen(false);
                           setQuery("");

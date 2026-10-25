@@ -9,7 +9,7 @@ export const contentType = "image/png";
 export default async function Image({
   params,
 }: {
-  params: Promise<{ locale: string; category: string }>;
+  params: Promise<{ locale: string; track: string; category: string }>;
 }) {
   const { category: categoryId } = await params;
   const category = getCategory(categoryId);

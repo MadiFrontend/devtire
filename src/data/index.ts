@@ -1,5 +1,6 @@
 import type { Level, Question } from "./types";
-import { categories } from "./categories";
+import { categories, getCategory } from "./categories";
+import { tracks } from "./tracks";
 import { javascriptQuestions } from "./javascript";
 import { htmlCssQuestions } from "./html-css";
 import { reactQuestions } from "./react";
@@ -20,6 +21,7 @@ import { extraQuestions } from "./extra";
 
 export * from "./types";
 export * from "./categories";
+export * from "./tracks";
 
 export const allQuestions: Question[] = [
   ...htmlCssQuestions,
@@ -82,9 +84,39 @@ export function searchQuestions(query: string, locale: "fa" | "en"): Question[] 
   });
 }
 
-export function getCategoryStats() {
-  return categories.map((c) => ({
+export function getTrackCategories(trackId: string) {
+  return categories.filter((c) => c.track === trackId);
+}
+
+export function getCategoryInTrack(trackId: string, categoryId: string) {
+  const category = getCategory(categoryId);
+  return category?.track === trackId ? category : undefined;
+}
+
+export function getCategoryStats(trackId: string) {
+  return getTrackCategories(trackId).map((c) => ({
     ...c,
     counts: getLevelCounts(c.id),
   }));
+}
+
+export function getTrackStats() {
+  return tracks.map((t) => {
+    const trackCategories = getTrackCategories(t.id);
+    const ids = new Set(trackCategories.map((c) => c.id));
+    return {
+      ...t,
+      categoryCount: trackCategories.length,
+      questionCount: allQuestions.filter((q) => ids.has(q.category)).length,
+    };
+  });
+}
+
+export function categoryPath(categoryId: string) {
+  const category = getCategory(categoryId);
+  return `/${category?.track ?? "frontend"}/${categoryId}`;
+}
+
+export function practicePath(categoryId: string, level: Level) {
+  return `${categoryPath(categoryId)}/${level}`;
 }

@@ -9,7 +9,7 @@ const ogLocales: Record<Locale, string> = {
 
 type PageMetadataInput = {
   locale: Locale;
-  /** Path after the locale prefix, e.g. "" or "/react/junior". */
+  /** Path after the locale prefix, e.g. "" or "/frontend/react/junior". */
   path: string;
   title?: string;
   description: string;
@@ -39,7 +39,7 @@ export function pageMetadata({
     url: `/${locale}${ogImagePath ?? ""}/opengraph-image`,
     width: 1200,
     height: 630,
-    alt: `${siteConfig.name}: frontend interview questions from Junior to Senior`,
+    alt: `${siteConfig.name}: software engineering interview questions from Junior to Senior`,
   };
 
   return {

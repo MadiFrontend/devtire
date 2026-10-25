@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getBookmarks } from "@/lib/storage";
-import { getQuestionById, getCategory } from "@/data";
+import { getQuestionById, getCategory, practicePath } from "@/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Locale } from "@/i18n/routing";
@@ -49,7 +49,7 @@ export function BookmarksClient() {
                   <p className="font-medium leading-relaxed">{q.question[locale]}</p>
                 </div>
                 <Button asChild variant="outline" size="sm">
-                  <Link href={`/${q.category}/${q.level}` as "/"}>{t("open")}</Link>
+                  <Link href={practicePath(q.category, q.level) as "/"}>{t("open")}</Link>
                 </Button>
               </li>
             );

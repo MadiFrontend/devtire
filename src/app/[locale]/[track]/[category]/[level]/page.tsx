@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { getCategory, getQuestions } from "@/data";
+import { categories, getCategoryInTrack, getQuestions, getTrack } from "@/data";
 import { Flashcard } from "@/components/practice/flashcard";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -12,18 +12,20 @@ import type { Level } from "@/data/types";
 import type { Locale } from "@/i18n/routing";
 
 type Props = {
-  params: Promise<{ locale: string; category: string; level: string }>;
+  params: Promise<{ locale: string; track: string; category: string; level: string }>;
 };
 
 const validLevels: Level[] = ["junior", "middle", "senior"];
 
 export function generateStaticParams() {
-  return validLevels.map((level) => ({ level }));
+  return categories.flatMap((c) =>
+    validLevels.map((level) => ({ track: c.track, category: c.id, level })),
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, category: categoryId, level } = await params;
-  const category = getCategory(categoryId);
+  const { locale, track: trackId, category: categoryId, level } = await params;
+  const category = getCategoryInTrack(trackId, categoryId);
   if (!category || !validLevels.includes(level as Level)) return {};
   const loc = locale as Locale;
   const t = await getTranslations({ locale, namespace: "seo" });
@@ -33,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = getQuestions(categoryId, level as Level).length;
   return pageMetadata({
     locale: loc,
-    path: `/${categoryId}/${level}`,
-    ogImagePath: `/${categoryId}/${level}`,
+    path: `/${trackId}/${categoryId}/${level}`,
+    ogImagePath: `/${trackId}/${categoryId}/${level}`,
     title: t("levelTitle", { name, level: levelLabel, count }),
     description: t("levelDescription", {
       name,
@@ -46,18 +48,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PracticePage({ params }: Props) {
-  const { locale, category: categoryId, level } = await params;
+  const { locale, track: trackId, category: categoryId, level } = await params;
   setRequestLocale(locale);
 
   if (!validLevels.includes(level as Level)) notFound();
-  const category = getCategory(categoryId);
-  if (!category) notFound();
+  const category = getCategoryInTrack(trackId, categoryId);
+  const track = getTrack(trackId);
+  if (!category || !track) notFound();
 
   const questions = getQuestions(categoryId, level as Level);
   const t = await getTranslations("levels");
   const tSeo = await getTranslations("seo");
   const loc = locale as Locale;
-  const pageUrl = absoluteUrl(`/${locale}/${categoryId}/${level}`);
+  const pageUrl = absoluteUrl(`/${locale}/${trackId}/${categoryId}/${level}`);
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -77,12 +80,18 @@ export default async function PracticePage({ params }: Props) {
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: category.name[loc],
-                  item: absoluteUrl(`/${locale}/${categoryId}`),
+                  name: track.name[loc],
+                  item: absoluteUrl(`/${locale}/${trackId}`),
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
+                  name: category.name[loc],
+                  item: absoluteUrl(`/${locale}/${trackId}/${categoryId}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
                   name: t(level as Level),
                   item: pageUrl,
                 },
@@ -122,7 +131,7 @@ export default async function PracticePage({ params }: Props) {
       />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
-          href={`/${categoryId}` as "/"}
+          href={`/${trackId}/${categoryId}` as "/"}
           className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="size-4 rtl:rotate-180" />

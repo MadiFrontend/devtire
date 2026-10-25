@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { categories, getCategory, getLevelCounts } from "@/data";
+import { categories, getCategoryInTrack, getLevelCounts, getTrack } from "@/data";
 import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
@@ -13,26 +13,26 @@ import type { Level } from "@/data/types";
 import type { Locale } from "@/i18n/routing";
 
 type Props = {
-  params: Promise<{ locale: string; category: string }>;
+  params: Promise<{ locale: string; track: string; category: string }>;
 };
 
 const levels: Level[] = ["junior", "middle", "senior"];
 
 export function generateStaticParams() {
-  return categories.map((c) => ({ category: c.id }));
+  return categories.map((c) => ({ track: c.track, category: c.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, category: categoryId } = await params;
-  const category = getCategory(categoryId);
+  const { locale, track: trackId, category: categoryId } = await params;
+  const category = getCategoryInTrack(trackId, categoryId);
   if (!category) return {};
   const loc = locale as Locale;
   const t = await getTranslations({ locale, namespace: "seo" });
   const name = category.name[loc];
   return pageMetadata({
     locale: loc,
-    path: `/${categoryId}`,
-    ogImagePath: `/${categoryId}`,
+    path: `/${trackId}/${categoryId}`,
+    ogImagePath: `/${trackId}/${categoryId}`,
     title: t("categoryTitle", { name }),
     description: t("categoryDescription", {
       name,
@@ -42,10 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const { locale, category: categoryId } = await params;
+  const { locale, track: trackId, category: categoryId } = await params;
   setRequestLocale(locale);
-  const category = getCategory(categoryId);
-  if (!category) notFound();
+  const category = getCategoryInTrack(trackId, categoryId);
+  const track = getTrack(trackId);
+  if (!category || !track) notFound();
 
   const t = await getTranslations("levels");
   const tSeo = await getTranslations("seo");
@@ -74,14 +75,20 @@ export default async function CategoryPage({ params }: Props) {
             {
               "@type": "ListItem",
               position: 2,
+              name: track.name[loc],
+              item: absoluteUrl(`/${locale}/${trackId}`),
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
               name: category.name[loc],
-              item: absoluteUrl(`/${locale}/${categoryId}`),
+              item: absoluteUrl(`/${locale}/${trackId}/${categoryId}`),
             },
           ],
         }}
       />
       <Link
-        href="/"
+        href={`/${trackId}` as "/"}
         className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-4 rtl:rotate-180" />
@@ -113,7 +120,7 @@ export default async function CategoryPage({ params }: Props) {
           {levels.map((level) => (
             <Link
               key={level}
-              href={`/${categoryId}/${level}` as "/"}
+              href={`/${trackId}/${categoryId}/${level}` as "/"}
               className="rounded-xl border border-border/80 bg-card p-6 shadow-sm transition-colors duration-150 hover:border-accent/50"
             >
               <Badge variant={meta[level].variant}>{meta[level].label}</Badge>

@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getCategoryStats } from "@/data";
-import { CategoryCard } from "@/components/home/category-card";
+import { getTrackStats } from "@/data";
+import { TrackCard } from "@/components/home/track-card";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -8,7 +8,7 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
-  const stats = getCategoryStats();
+  const stats = getTrackStats();
 
   return (
     <div className="space-y-10">
@@ -26,10 +26,15 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <section>
-        <h2 className="mb-5 font-display text-xl font-semibold">{t("categories")}</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {stats.map((cat) => (
-            <CategoryCard key={cat.id} category={cat} counts={cat.counts} />
+        <h2 className="mb-5 font-display text-xl font-semibold">{t("tracks")}</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {stats.map((track) => (
+            <TrackCard
+              key={track.id}
+              track={track}
+              questionCount={track.questionCount}
+              categoryCount={track.categoryCount}
+            />
           ))}
         </div>
       </section>

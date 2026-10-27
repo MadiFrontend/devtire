@@ -58,6 +58,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       default: t("title"),
       template: `%s | ${siteConfig.name}`,
     },
+    verification: {
+      google: "hjCzi8oPezePEs3aMtGzXeXrXgBr6apmtyaegHF9aEY",
+    },
     applicationName: siteConfig.name,
     keywords: t("keywords").split(",").map((k) => k.trim()),
     authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],

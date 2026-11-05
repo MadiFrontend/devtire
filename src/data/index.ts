@@ -18,6 +18,7 @@ import { stateManagementMore } from "./more/state-management";
 import { designPatternsMore } from "./more/design-patterns";
 import { systemDesignMore } from "./more/system-design";
 import { extraQuestions } from "./extra";
+import { backendQuestions } from "./backend";
 
 export * from "./types";
 export * from "./categories";
@@ -41,6 +42,7 @@ export const allQuestions: Question[] = [
   ...systemDesignQuestions,
   ...systemDesignMore,
   ...extraQuestions,
+  ...backendQuestions,
 ];
 
 export function getQuestionsByCategory(categoryId: string): Question[] {

@@ -1,18 +1,26 @@
 import {
   Atom,
   Binary,
+  Blocks,
   Boxes,
   Braces,
   Container,
+  Database,
   FileCode2,
+  Hexagon,
   Layers,
   Layout,
+  Leaf,
   MessagesSquare,
   Monitor,
   Network,
   Puzzle,
   Server,
+  ShieldCheck,
   Triangle,
+  Webhook,
+  Workflow,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -32,6 +40,14 @@ const icons: Record<string, LucideIcon> = {
   Layers,
   Container,
   MessagesSquare,
+  Hexagon,
+  Webhook,
+  Database,
+  Leaf,
+  Zap,
+  ShieldCheck,
+  Workflow,
+  Blocks,
 };
 
 export function CategoryIcon({

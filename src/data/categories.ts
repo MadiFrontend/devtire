@@ -97,6 +97,102 @@ export const categories: CategoryMeta[] = [
     },
     tags: ["architecture", "performance", "cdn"],
   },
+  {
+    id: "nodejs",
+    track: "backend",
+    icon: "Hexagon",
+    color: "#5fa04e",
+    name: { fa: "نود جی‌اس", en: "Node.js" },
+    description: {
+      fa: "event loop، streamها، ماژول‌ها، concurrency و runtime نود",
+      en: "Event loop, streams, modules, concurrency & the Node runtime",
+    },
+    tags: ["event-loop", "streams", "async"],
+  },
+  {
+    id: "api-design",
+    track: "backend",
+    icon: "Webhook",
+    color: "#ff6c37",
+    name: { fa: "طراحی API", en: "API Design" },
+    description: {
+      fa: "REST، GraphQL، gRPC، نسخه‌بندی، صفحه‌بندی و idempotency",
+      en: "REST, GraphQL, gRPC, versioning, pagination & idempotency",
+    },
+    tags: ["rest", "graphql", "http"],
+  },
+  {
+    id: "databases",
+    track: "backend",
+    icon: "Database",
+    color: "#336791",
+    name: { fa: "SQL و دیتابیس", en: "SQL & Databases" },
+    description: {
+      fa: "کوئری، ایندکس، تراکنش، نرمال‌سازی و بهینه‌سازی دیتابیس رابطه‌ای",
+      en: "Queries, indexes, transactions, normalization & relational tuning",
+    },
+    tags: ["sql", "indexes", "transactions"],
+  },
+  {
+    id: "nosql",
+    track: "backend",
+    icon: "Leaf",
+    color: "#47a248",
+    name: { fa: "NoSQL و MongoDB", en: "NoSQL & MongoDB" },
+    description: {
+      fa: "مدل‌سازی سند، aggregation، انواع NoSQL و انتخاب دیتابیس مناسب",
+      en: "Document modeling, aggregation, NoSQL families & choosing a store",
+    },
+    tags: ["mongodb", "modeling", "cap"],
+  },
+  {
+    id: "caching",
+    track: "backend",
+    icon: "Zap",
+    color: "#dc382d",
+    name: { fa: "کش و Redis", en: "Caching & Redis" },
+    description: {
+      fa: "استراتژی‌های کش، invalidation، ساختارهای داده Redis و rate limiting",
+      en: "Cache strategies, invalidation, Redis data structures & rate limiting",
+    },
+    tags: ["redis", "cache-aside", "ttl"],
+  },
+  {
+    id: "auth-security",
+    track: "backend",
+    icon: "ShieldCheck",
+    color: "#ef4444",
+    name: { fa: "احراز هویت و امنیت", en: "Auth & Security" },
+    description: {
+      fa: "Session، JWT، OAuth 2.0، هش رمز عبور و آسیب‌پذیری‌های OWASP",
+      en: "Sessions, JWT, OAuth 2.0, password hashing & OWASP vulnerabilities",
+    },
+    tags: ["jwt", "oauth", "owasp"],
+  },
+  {
+    id: "message-queues",
+    track: "backend",
+    icon: "Workflow",
+    color: "#ff8f00",
+    name: { fa: "صف پیام و پردازش ناهمگام", en: "Message Queues & Async" },
+    description: {
+      fa: "RabbitMQ، Kafka، background jobها، تحویل پیام و الگوهای event-driven",
+      en: "RabbitMQ, Kafka, background jobs, delivery semantics & event-driven patterns",
+    },
+    tags: ["kafka", "rabbitmq", "jobs"],
+  },
+  {
+    id: "backend-architecture",
+    track: "backend",
+    icon: "Blocks",
+    color: "#0891b2",
+    name: { fa: "معماری بک‌اند", en: "Backend Architecture" },
+    description: {
+      fa: "مونولیت و میکروسرویس، مقیاس‌پذیری، observability و تست سرویس‌ها",
+      en: "Monoliths & microservices, scalability, observability & testing services",
+    },
+    tags: ["microservices", "scalability", "observability"],
+  },
 ];
 
 export function getCategory(id: string) {

@@ -17,13 +17,13 @@ export const tracks: TrackMeta[] = [
     id: "backend",
     icon: "Server",
     color: "#10b981",
-    status: "soon",
+    status: "live",
     name: { fa: "بک‌اند", en: "Backend" },
     description: {
-      fa: "Node.js، طراحی API، دیتابیس، احراز هویت، کش و صف پیام",
-      en: "Node.js, API design, databases, auth, caching and message queues",
+      fa: "Node.js، طراحی API، دیتابیس، احراز هویت، کش، صف پیام و معماری بک‌اند",
+      en: "Node.js, API design, databases, auth, caching, message queues and backend architecture",
     },
-    topics: ["Node.js", "REST & GraphQL", "SQL", "Auth", "Redis"],
+    topics: ["Node.js", "REST & GraphQL", "SQL", "Redis", "Auth"],
   },
   {
     id: "system-design",

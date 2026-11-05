@@ -6,8 +6,8 @@ Bilingual (English / Persian) software engineering interview practice. Pick a tr
 
 ## Features
 
-- Tracks on the home page: Frontend (live), Backend, System Design, Algorithms, Software Engineering, DevOps, Behavioral (coming soon)
-- 1200 frontend multiple-choice questions: 8 topics, 3 levels (Junior, Middle, Senior), 50 questions each
+- Tracks on the home page: Frontend and Backend (live), System Design, Algorithms, Software Engineering, DevOps, Behavioral (coming soon)
+- 2400 multiple-choice questions: 1200 frontend + 1200 backend, 8 topics per track, 3 levels (Junior, Middle, Senior), 50 questions each
 - Instant right/wrong feedback with explanations
 - Full English and Persian support, with RTL layout for Persian
 - Search across all questions
@@ -19,7 +19,7 @@ Bilingual (English / Persian) software engineering interview practice. Pick a tr
 | Track | Status | Topics |
 | --- | --- | --- |
 | Frontend | Live | HTML & CSS, JavaScript, TypeScript, React, State Management, Next.js, Design Patterns, Frontend System Design |
-| Backend | Coming soon | Node.js, API design, databases, auth, caching |
+| Backend | Live | Node.js, API Design, SQL & Databases, NoSQL & MongoDB, Caching & Redis, Auth & Security, Message Queues & Async, Backend Architecture |
 | System Design | Coming soon | Scalability, load balancing, sharding, case studies |
 | Algorithms & Data Structures | Coming soon | Big O, arrays, trees, graphs, DP |
 | Software Engineering | Coming soon | OOP, SOLID, patterns, testing, Git |
@@ -48,7 +48,8 @@ Example URLs:
 - `/en` – track picker
 - `/en/frontend` – frontend topics
 - `/en/frontend/react/senior` – practice
-- `/en/backend` – coming soon page
+- `/en/backend/nodejs/middle` – backend practice
+- `/en/devops` – coming soon page
 
 ## Project structure
 
@@ -58,7 +59,8 @@ src/app/[locale]/         Home, track, category, practice, bookmarks, feedback
 src/components/           UI, layout, and practice (quiz) components
 src/data/tracks.ts        Track metadata (live / coming soon)
 src/data/categories.ts    Topics, each linked to a track
-src/data/                 Question banks
+src/data/                 Question banks (frontend)
+src/data/backend/         Backend question banks
 src/lib/storage.ts        localStorage for progress, bookmarks, and feedback
 ```
 

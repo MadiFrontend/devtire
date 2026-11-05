@@ -29,7 +29,7 @@ export const tracks: TrackMeta[] = [
     id: "system-design",
     icon: "Network",
     color: "#f59e0b",
-    status: "soon",
+    status: "live",
     name: { fa: "طراحی سیستم", en: "System Design" },
     description: {
       fa: "مقیاس‌پذیری، load balancing، replication، sharding و سیستم‌های توزیع‌شده",

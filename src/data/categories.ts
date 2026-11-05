@@ -193,6 +193,102 @@ export const categories: CategoryMeta[] = [
     },
     tags: ["microservices", "scalability", "observability"],
   },
+  {
+    id: "scalability",
+    track: "system-design",
+    icon: "Gauge",
+    color: "#f59e0b",
+    name: { fa: "مقیاس‌پذیری و عملکرد", en: "Scalability & Performance" },
+    description: {
+      fa: "مقیاس عمودی و افقی، latency و throughput، تخمین ظرفیت و SLOها",
+      en: "Vertical vs horizontal scaling, latency & throughput, capacity estimation & SLOs",
+    },
+    tags: ["scaling", "latency", "estimation"],
+  },
+  {
+    id: "load-balancing",
+    track: "system-design",
+    icon: "Split",
+    color: "#0ea5e9",
+    name: { fa: "Load Balancing و شبکه", en: "Load Balancing & Networking" },
+    description: {
+      fa: "الگوریتم‌های توزیع بار، L4 و L7، DNS، reverse proxy و API gateway",
+      en: "Balancing algorithms, L4 vs L7, DNS, reverse proxies & API gateways",
+    },
+    tags: ["load-balancer", "dns", "proxy"],
+  },
+  {
+    id: "caching-cdn",
+    track: "system-design",
+    icon: "Globe",
+    color: "#f97316",
+    name: { fa: "کش توزیع‌شده و CDN", en: "Distributed Caching & CDN" },
+    description: {
+      fa: "لایه‌های کش، CDN و edge، consistent hashing و مشکلات کش در مقیاس بالا",
+      en: "Cache layers, CDN & edge, consistent hashing and caching pitfalls at scale",
+    },
+    tags: ["cdn", "edge", "hot-keys"],
+  },
+  {
+    id: "replication-sharding",
+    track: "system-design",
+    icon: "DatabaseZap",
+    color: "#2563eb",
+    name: { fa: "Replication و Sharding", en: "Replication & Sharding" },
+    description: {
+      fa: "leader/follower، multi-leader، partitioning، rebalancing و hot spotها",
+      en: "Leader/follower, multi-leader, partitioning, rebalancing & hot spots",
+    },
+    tags: ["replication", "sharding", "partitioning"],
+  },
+  {
+    id: "consistency",
+    track: "system-design",
+    icon: "Scale",
+    color: "#14b8a6",
+    name: { fa: "سازگاری، CAP و اجماع", en: "Consistency, CAP & Consensus" },
+    description: {
+      fa: "CAP و PACELC، مدل‌های سازگاری، quorum، Raft و تراکنش توزیع‌شده",
+      en: "CAP & PACELC, consistency models, quorums, Raft & distributed transactions",
+    },
+    tags: ["cap", "quorum", "raft"],
+  },
+  {
+    id: "reliability",
+    track: "system-design",
+    icon: "LifeBuoy",
+    color: "#e11d48",
+    name: { fa: "پایداری و تحمل خطا", en: "Reliability & Fault Tolerance" },
+    description: {
+      fa: "redundancy، retry و backoff، circuit breaker، rate limiting و disaster recovery",
+      en: "Redundancy, retries & backoff, circuit breakers, rate limiting & disaster recovery",
+    },
+    tags: ["availability", "circuit-breaker", "failover"],
+  },
+  {
+    id: "event-driven",
+    track: "system-design",
+    icon: "RadioTower",
+    color: "#ca8a04",
+    name: { fa: "معماری رویدادمحور و Streaming", en: "Event-Driven & Streaming" },
+    description: {
+      fa: "pub/sub، log توزیع‌شده، event sourcing، CQRS و پردازش جریان داده",
+      en: "Pub/sub, distributed logs, event sourcing, CQRS & stream processing",
+    },
+    tags: ["pub-sub", "event-sourcing", "streaming"],
+  },
+  {
+    id: "case-studies",
+    track: "system-design",
+    icon: "Landmark",
+    color: "#16a34a",
+    name: { fa: "مطالعه موردی", en: "Case Studies" },
+    description: {
+      fa: "طراحی URL shortener، news feed، چت، rate limiter و سیستم‌های واقعی",
+      en: "Designing a URL shortener, news feed, chat, rate limiter & real-world systems",
+    },
+    tags: ["url-shortener", "news-feed", "chat"],
+  },
 ];
 
 export function getCategory(id: string) {

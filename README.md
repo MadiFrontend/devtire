@@ -6,8 +6,8 @@ Bilingual (English / Persian) software engineering interview practice. Pick a tr
 
 ## Features
 
-- Tracks on the home page: Frontend and Backend (live), System Design, Algorithms, Software Engineering, DevOps, Behavioral (coming soon)
-- 2400 multiple-choice questions: 1200 frontend + 1200 backend, 8 topics per track, 3 levels (Junior, Middle, Senior), 50 questions each
+- Tracks on the home page: Frontend, Backend and System Design (live), Algorithms, Software Engineering, DevOps, Behavioral (coming soon)
+- 3600 multiple-choice questions: 1200 frontend + 1200 backend + 1200 system design, 8 topics per track, 3 levels (Junior, Middle, Senior), 50 questions each
 - Instant right/wrong feedback with explanations
 - Full English and Persian support, with RTL layout for Persian
 - Search across all questions
@@ -20,7 +20,7 @@ Bilingual (English / Persian) software engineering interview practice. Pick a tr
 | --- | --- | --- |
 | Frontend | Live | HTML & CSS, JavaScript, TypeScript, React, State Management, Next.js, Design Patterns, Frontend System Design |
 | Backend | Live | Node.js, API Design, SQL & Databases, NoSQL & MongoDB, Caching & Redis, Auth & Security, Message Queues & Async, Backend Architecture |
-| System Design | Coming soon | Scalability, load balancing, sharding, case studies |
+| System Design | Live | Scalability & Performance, Load Balancing & Networking, Distributed Caching & CDN, Replication & Sharding, Consistency CAP & Consensus, Reliability & Fault Tolerance, Event-Driven & Streaming, Case Studies |
 | Algorithms & Data Structures | Coming soon | Big O, arrays, trees, graphs, DP |
 | Software Engineering | Coming soon | OOP, SOLID, patterns, testing, Git |
 | DevOps & Cloud | Coming soon | Docker, CI/CD, Linux, Kubernetes |
@@ -49,6 +49,7 @@ Example URLs:
 - `/en/frontend` – frontend topics
 - `/en/frontend/react/senior` – practice
 - `/en/backend/nodejs/middle` – backend practice
+- `/en/system-design/case-studies/senior` – system design practice
 - `/en/devops` – coming soon page
 
 ## Project structure
@@ -61,6 +62,7 @@ src/data/tracks.ts        Track metadata (live / coming soon)
 src/data/categories.ts    Topics, each linked to a track
 src/data/                 Question banks (frontend)
 src/data/backend/         Backend question banks
+src/data/sysdesign/       System design question banks
 src/lib/storage.ts        localStorage for progress, bookmarks, and feedback
 ```
 

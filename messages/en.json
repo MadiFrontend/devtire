@@ -18,7 +18,9 @@
     "questionCount": "{count} questions",
     "more": "More articles",
     "coverTrack": "{track} interviews",
-    "coverMixed": "Tech interviews"
+    "coverMixed": "Tech interviews",
+    "eyebrow": "DevTier blog",
+    "latest": "Latest"
   },
   "nav": {
     "home": "Home",
@@ -54,7 +56,26 @@
     "faq4q": "Are the questions in English or Persian?",
     "faq4a": "Both. You can switch languages at any time. The Persian text keeps technical terms in English, the way they are used at work.",
     "faq5q": "What is the difference between Junior, Middle and Senior?",
-    "faq5a": "Junior questions test fundamentals, Middle questions focus on applied, real-world scenarios and Senior questions are about architecture, performance and trade-offs."
+    "faq5a": "Junior questions test fundamentals, Middle questions focus on applied, real-world scenarios and Senior questions are about architecture, performance and trade-offs.",
+    "heroBadge": "Free · No sign-up · English & Persian",
+    "heroTitle": "Software engineering interview prep,",
+    "heroAccent": "from Junior to Senior",
+    "ctaPractice": "Start practicing",
+    "ctaArticles": "Read the guides",
+    "statQuestions": "practice questions",
+    "statTracks": "live tracks",
+    "statLevels": "difficulty levels",
+    "statLanguages": "languages",
+    "sampleLabel": "Sample question",
+    "sampleCorrect": "Correct answer, with a full explanation",
+    "tracksSub": "Choose the path that matches the role you are interviewing for.",
+    "blogTitle": "Interview prep guides",
+    "blogSub": "In-depth guides on what each interview asks and how to prepare.",
+    "blogAll": "All articles",
+    "testimonialsTitle": "From developers who practiced here",
+    "testimonialsSub": "How developers used DevTier to get ready for their interviews.",
+    "ctaTitle": "Ready for your next interview?",
+    "ctaText": "Pick a track and answer your first question right now. Free, no sign-up."
   },
   "levels": {
     "title": "Choose a level",

@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowUpRight, Clock } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { BookOpen } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { PostCover } from "@/components/blog/post-cover";
+import { PostCard } from "@/components/blog/post-card";
 import { getPosts } from "@/lib/blog";
-import { postTheme } from "@/lib/blog-theme";
-import { formatPostDate } from "@/lib/format";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -31,13 +28,10 @@ export default async function BlogPage({ params }: Props) {
   const t = await getTranslations("blog");
   const tSeo = await getTranslations("seo");
   const posts = getPosts(loc);
-  const coverLabel = (categories: string[]) => {
-    const { track } = postTheme(categories);
-    return track ? t("coverTrack", { track: track.name[loc] }) : t("coverMixed");
-  };
+  const [featured, ...rest] = posts;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
+    <div className="space-y-12">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -67,44 +61,34 @@ export default async function BlogPage({ params }: Props) {
         }}
       />
 
-      <header className="space-y-3">
-        <h1 className="font-display text-3xl font-bold tracking-tight">{t("title")}</h1>
-        <p className="text-muted-foreground">{t("subtitle")}</p>
+      <header className="relative isolate overflow-hidden rounded-3xl border border-border/60 bg-card px-6 py-12 text-center sm:py-16">
+        <div className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black_25%,transparent_70%)]" />
+        <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 size-[480px] -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]" />
+        <p className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+          <BookOpen className="size-3.5" />
+          {t("eyebrow")}
+        </p>
+        <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <span className="text-gradient">{t("title")}</span>
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl leading-8 text-muted-foreground sm:text-lg">
+          {t("subtitle")}
+        </p>
       </header>
 
-      {posts.length === 0 ? (
-        <p className="text-muted-foreground">{t("empty")}</p>
+      {!featured ? (
+        <p className="text-center text-muted-foreground">{t("empty")}</p>
       ) : (
-        <ul className="space-y-4">
-          {posts.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/blog/${post.slug}` as "/"}
-                className="group block overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm transition-colors hover:border-accent/50"
-              >
-                <PostCover
-                  theme={postTheme(post.categories)}
-                  label={coverLabel(post.categories)}
-                  className="rounded-none"
-                />
-                <div className="p-6">
-                  <h2 className="flex items-start justify-between gap-3 font-display text-xl font-semibold leading-snug">
-                    {post.title}
-                    <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-accent rtl:-scale-x-100" />
-                  </h2>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{post.description}</p>
-                  <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                    <time dateTime={post.date}>{formatPostDate(post.date, loc)}</time>
-                    <span className="inline-flex items-center gap-1">
-                      <Clock className="size-3.5" />
-                      {t("readingTime", { minutes: post.readingMinutes })}
-                    </span>
-                  </p>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <>
+          <PostCard post={featured} featured heading="h2" />
+          {rest.length > 0 && (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {rest.map((post) => (
+                <PostCard key={post.slug} post={post} heading="h2" />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

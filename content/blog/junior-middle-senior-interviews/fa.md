@@ -1,7 +1,7 @@
 ---
 title: "فرق مصاحبه جونیور، میدل و سینیور: از هر سطح چه انتظاری دارند؟"
 description: "مصاحبه فنی جونیور، میدل و سینیور چه فرقی دارد؟ یک سؤال در سه عمق، انتظارات System Design و رفتاری، Red Flagها و اینکه برای کدام سطح اپلای کنید."
-date: "2026-11-09"
+date: "2026-10-26"
 categories: ["react", "javascript", "databases", "caching", "scalability", "case-studies"]
 tags: ["مصاحبه فنی", "مسیر شغلی", "سینیوریتی", "System Design", "خودارزیابی"]
 ---

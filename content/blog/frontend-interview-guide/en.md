@@ -1,7 +1,7 @@
 ---
 title: "Frontend Interview Guide: How to Prepare, Step by Step"
 description: "A complete frontend interview guide: interview stages, Junior vs Senior expectations, the most asked HTML, JavaScript, React and Next.js questions, and a 4-week plan."
-date: "2026-11-09"
+date: "2026-09-14"
 categories: ["html-css", "javascript", "typescript", "react", "nextjs", "system-design"]
 tags: ["frontend interview", "interview preparation", "javascript", "react", "career"]
 ---

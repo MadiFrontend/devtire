@@ -1,7 +1,7 @@
 ---
 title: "Backend Interview Guide: Node.js, APIs, Databases & More"
 description: "A complete backend interview guide: Node.js event loop, API design, SQL and NoSQL, Redis caching, auth, message queues, a 4-week plan and level expectations."
-date: "2026-11-09"
+date: "2026-09-28"
 categories: ["nodejs", "api-design", "databases", "caching", "auth-security", "message-queues"]
 tags: ["backend interview", "nodejs", "system design", "interview prep", "databases"]
 ---

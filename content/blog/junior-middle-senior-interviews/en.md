@@ -1,7 +1,7 @@
 ---
 title: "Junior vs Middle vs Senior Interviews: What Each Level Expects"
 description: "How junior, middle and senior developer interviews differ: the same question at three depths, system design and behavioral expectations, and how to pick your level."
-date: "2026-11-09"
+date: "2026-10-26"
 categories: ["react", "javascript", "databases", "caching", "scalability", "case-studies"]
 tags: ["interviews", "career", "seniority", "system design", "self-assessment"]
 ---

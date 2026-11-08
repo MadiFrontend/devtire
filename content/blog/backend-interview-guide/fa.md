@@ -1,7 +1,7 @@
 ---
 title: "راهنمای کامل آمادگی مصاحبه بک‌اند: Node.js، API و دیتابیس"
 description: "راهنمای کامل آمادگی مصاحبه بک‌اند: event loop در Node.js، طراحی API، دیتابیس SQL و NoSQL، کش با Redis، امنیت، message queue و برنامه ۴ هفته‌ای."
-date: "2026-11-09"
+date: "2026-09-28"
 categories: ["nodejs", "api-design", "databases", "caching", "auth-security", "message-queues"]
 tags: ["مصاحبه بک‌اند", "nodejs", "system design", "آمادگی مصاحبه", "دیتابیس"]
 ---

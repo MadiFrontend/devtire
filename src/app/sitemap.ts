@@ -10,6 +10,8 @@ type Entry = {
   path: string;
   priority: number;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  /** Only set when a real content change date is known. */
+  lastModified?: Date;
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,8 +19,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (c) => getTrack(c.track)?.status === "live",
   );
 
+  const postDates = getPostSlugs().flatMap((slug) =>
+    getPostLocales(slug).map((locale) => {
+      const post = getPost(slug, locale)!;
+      return post.updated ?? post.date;
+    }),
+  );
+  const latestPost = postDates.length
+    ? new Date(postDates.sort().at(-1)!)
+    : undefined;
+
   const entries: Entry[] = [
-    { path: "", priority: 1, changeFrequency: "weekly" },
+    { path: "", priority: 1, changeFrequency: "weekly", lastModified: latestPost },
     ...tracks
       .filter((t) => t.status === "live")
       .map((t) => ({
@@ -38,11 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "weekly" as const,
       })),
     ),
-    { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly", lastModified: latestPost },
     { path: "/feedback", priority: 0.3, changeFrequency: "yearly" },
   ];
-
-  const lastModified = new Date();
 
   const posts = getPostSlugs().flatMap((slug) => {
     const locales = getPostLocales(slug);
@@ -54,18 +64,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as const,
         priority: 0.75,
         alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [l, absoluteUrl(`/${l}/blog/${slug}`)]),
-          ),
+          languages: Object.fromEntries([
+            ...locales.map((l) => [l, absoluteUrl(`/${l}/blog/${slug}`)]),
+            [
+              "x-default",
+              absoluteUrl(
+                `/${locales.includes(routing.defaultLocale) ? routing.defaultLocale : locales[0]}/blog/${slug}`,
+              ),
+            ],
+          ]),
         },
       };
     });
   });
 
-  const pages = entries.flatMap(({ path, priority, changeFrequency }) =>
+  const pages = entries.flatMap(({ path, priority, changeFrequency, lastModified }) =>
     routing.locales.map((locale) => ({
       url: absoluteUrl(`/${locale}${path}`),
-      lastModified,
+      ...(lastModified ? { lastModified } : {}),
       changeFrequency,
       priority,
       alternates: {

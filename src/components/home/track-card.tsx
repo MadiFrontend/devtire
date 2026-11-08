@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -24,9 +25,12 @@ export function TrackCard({
     <Link
       href={`/${track.id}` as "/"}
       aria-disabled={!live}
+      style={{ "--glow": track.color } as CSSProperties}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-xl border bg-card p-5 transition-colors duration-150",
-        live ? "border-border/80 hover:border-accent/50" : "border-border/50",
+        "group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border bg-card p-6 transition-all duration-300",
+        live
+          ? "border-border/70 hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--glow)_50%,transparent)] hover:shadow-[0_24px_60px_-28px_var(--glow)]"
+          : "border-border/50",
       )}
     >
       <span
@@ -34,6 +38,13 @@ export function TrackCard({
         className="absolute inset-x-0 top-0 h-1"
         style={{ backgroundColor: live ? track.color : "var(--border)" }}
       />
+      {live && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -end-24 -z-10 size-56 rounded-full opacity-20 blur-3xl transition-opacity duration-300 group-hover:opacity-40"
+          style={{ backgroundColor: track.color }}
+        />
+      )}
 
       <div className="flex items-start justify-between gap-3">
         <span className={cn(!live && "opacity-40 grayscale")}>

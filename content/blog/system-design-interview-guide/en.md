@@ -1,7 +1,7 @@
 ---
 title: "System Design Interview: A Step-by-Step Guide to Passing"
 description: "Prepare for your system design interview with a proven 45-minute framework, estimation examples, core building blocks, a URL shortener walkthrough, and a study plan."
-date: "2026-11-09"
+date: "2026-10-12"
 categories: ["scalability", "load-balancing", "caching-cdn", "replication-sharding", "consistency", "case-studies"]
 tags: ["system design", "interview prep", "scalability", "distributed systems", "architecture"]
 ---

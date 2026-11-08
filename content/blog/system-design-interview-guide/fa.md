@@ -1,7 +1,7 @@
 ---
 title: "مصاحبه System Design: راهنمای قدم‌به‌قدم برای قبولی"
 description: "آمادگی برای مصاحبه System Design با یک فریم‌ورک ۴۵ دقیقه‌ای، مثال تخمین ظرفیت، اجزای کلیدی مثل cache و sharding، طراحی URL shortener و برنامه مطالعه."
-date: "2026-11-09"
+date: "2026-10-12"
 categories: ["scalability", "load-balancing", "caching-cdn", "replication-sharding", "consistency", "case-studies"]
 tags: ["system design", "مصاحبه فنی", "scalability", "سیستم توزیع‌شده", "معماری نرم‌افزار"]
 ---

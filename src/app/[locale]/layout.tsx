@@ -121,6 +121,17 @@ export default async function LocaleLayout({ children, params }: Props) {
                 description: t("description"),
                 inLanguage: locale as Locale,
                 publisher: { "@id": `${absoluteUrl()}/#author` },
+                about: [
+                  "Software engineering interview preparation",
+                  "Frontend development",
+                  "Backend development",
+                  "System design",
+                ],
+                audience: {
+                  "@type": "EducationalAudience",
+                  educationalRole: "Software developer",
+                },
+                isAccessibleForFree: true,
               },
               {
                 "@type": "Person",

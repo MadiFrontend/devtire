@@ -37,7 +37,7 @@ export const replicationShardingMiddle = build("replication-sharding", [
     id: "sd-shard-m-consistent-prefix",
     level: "middle",
     tags: ["replication", "partitioning", "consistency"],
-    q: ["در یک سیستم partition‌شده، کاربری پاسخ یک سؤال را قبل از خود سؤال می‌بیند. کدام تضمین نقض شده است؟", "In a partitioned system, a user sees an answer before the question itself. Which guarantee is violated?"],
+    q: ["در یک سیستم partition‌شده، کاربری پاسخ یک سوال را قبل از خود سوال می‌بیند. کدام تضمین نقض شده است؟", "In a partitioned system, a user sees an answer before the question itself. Which guarantee is violated?"],
     options: [
       ["consistent prefix reads", "Consistent prefix reads"],
       ["read-your-writes", "Read-your-writes"],
@@ -45,7 +45,7 @@ export const replicationShardingMiddle = build("replication-sharding", [
       ["linearizable writes روی یک key", "Linearizable writes on a single key"],
     ],
     a: [
-      "سؤال و پاسخ در partitionهای مختلف با lag متفاوت هستند، پس ترتیب علّی به هم می‌ریزد. consistent prefix تضمین می‌کند نوشتن‌ها به همان ترتیبی که رخ داده‌اند دیده شوند.",
+      "سوال و پاسخ در partitionهای مختلف با lag متفاوت هستند، پس ترتیب علّی به هم می‌ریزد. consistent prefix تضمین می‌کند نوشتن‌ها به همان ترتیبی که رخ داده‌اند دیده شوند.",
       "The question and answer live in different partitions with different lag, so causal order is broken. Consistent prefix ensures writes are seen in the order they happened.",
     ],
   },

@@ -64,25 +64,48 @@ export default async function CategoryPage({ params }: Props) {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
+          "@graph": [
             {
-              "@type": "ListItem",
-              position: 1,
-              name: tSeo("home"),
-              item: absoluteUrl(`/${locale}`),
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: tSeo("home"),
+                  item: absoluteUrl(`/${locale}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: track.name[loc],
+                  item: absoluteUrl(`/${locale}/${trackId}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: category.name[loc],
+                  item: absoluteUrl(`/${locale}/${trackId}/${categoryId}`),
+                },
+              ],
             },
             {
-              "@type": "ListItem",
-              position: 2,
-              name: track.name[loc],
-              item: absoluteUrl(`/${locale}/${trackId}`),
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: category.name[loc],
-              item: absoluteUrl(`/${locale}/${trackId}/${categoryId}`),
+              "@type": "LearningResource",
+              name: tSeo("categoryTitle", { name: category.name[loc] }),
+              description: category.description[loc],
+              url: absoluteUrl(`/${locale}/${trackId}/${categoryId}`),
+              inLanguage: locale,
+              learningResourceType: "Practice quiz",
+              educationalLevel: levels.map((level) => meta[level].label),
+              teaches: category.name.en,
+              keywords: category.tags.join(", "),
+              isAccessibleForFree: true,
+              isPartOf: { "@id": `${absoluteUrl()}/#website` },
+              hasPart: levels.map((level) => ({
+                "@type": "Quiz",
+                name: `${category.name[loc]} · ${meta[level].label}`,
+                url: absoluteUrl(`/${locale}/${trackId}/${categoryId}/${level}`),
+                educationalLevel: level,
+              })),
             },
           ],
         }}

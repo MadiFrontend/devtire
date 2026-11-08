@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { categories, getTrack, tracks } from "@/data";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
+import { getPost, getPostLocales, getPostSlugs } from "@/lib/blog";
 
 const levels = ["junior", "middle", "senior"] as const;
 
@@ -37,12 +38,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "weekly" as const,
       })),
     ),
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
     { path: "/feedback", priority: 0.3, changeFrequency: "yearly" },
   ];
 
   const lastModified = new Date();
 
-  return entries.flatMap(({ path, priority, changeFrequency }) =>
+  const posts = getPostSlugs().flatMap((slug) => {
+    const locales = getPostLocales(slug);
+    return locales.map((locale) => {
+      const post = getPost(slug, locale)!;
+      return {
+        url: absoluteUrl(`/${locale}/blog/${slug}`),
+        lastModified: new Date(post.updated ?? post.date),
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+        alternates: {
+          languages: Object.fromEntries(
+            locales.map((l) => [l, absoluteUrl(`/${l}/blog/${slug}`)]),
+          ),
+        },
+      };
+    });
+  });
+
+  const pages = entries.flatMap(({ path, priority, changeFrequency }) =>
     routing.locales.map((locale) => ({
       url: absoluteUrl(`/${locale}${path}`),
       lastModified,
@@ -56,4 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+
+  return [...pages, ...posts];
 }

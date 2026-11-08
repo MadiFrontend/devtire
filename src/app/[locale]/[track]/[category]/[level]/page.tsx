@@ -4,8 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { categories, getCategoryInTrack, getQuestions, getTrack } from "@/data";
-import { Flashcard } from "@/components/practice/flashcard";
-import { JsonLd } from "@/components/seo/json-ld";
+import { Flashcard } from "@/components/practice/flashcard";import { JsonLd } from "@/components/seo/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import type { Level } from "@/data/types";
@@ -137,10 +136,28 @@ export default async function PracticePage({ params }: Props) {
           <ArrowLeft className="size-4 rtl:rotate-180" />
           {category.name[loc]}
         </Link>
-        <h1 className="text-sm font-normal text-muted-foreground">
+        <span className="text-sm text-muted-foreground">
           {category.name[loc]} · {t(level as Level)} · {questions.length}
-        </h1>
+        </span>
       </div>
+
+      <header className="space-y-2">
+        <h1 className="font-display text-2xl font-bold tracking-tight">
+          {tSeo("levelTitle", {
+            name: category.name[loc],
+            level: t(level as Level),
+            count: questions.length,
+          })}
+        </h1>
+        <p className="text-sm leading-6 text-muted-foreground">
+          {tSeo("levelIntro", {
+            name: category.name[loc],
+            level: t(level as Level),
+            focus: t(`${level}Desc`),
+            topics: category.description[loc],
+          })}
+        </p>
+      </header>
 
       <Flashcard
         questions={questions}

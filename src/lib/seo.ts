@@ -16,12 +16,22 @@ type PageMetadataInput = {
   noIndex?: boolean;
   /** Path of the segment whose opengraph-image route to use; defaults to the locale root. */
   ogImagePath?: string;
+  ogImageAlt?: string;
+  /** Locales the page exists in; defaults to all. */
+  locales?: readonly Locale[];
+  article?: { publishedTime: string; modifiedTime?: string; tags?: string[] };
 };
 
-export function languageAlternates(path: string) {
+export function languageAlternates(
+  path: string,
+  locales: readonly Locale[] = routing.locales,
+) {
   const languages: Record<string, string> = {};
-  for (const locale of routing.locales) languages[locale] = `/${locale}${path}`;
-  languages["x-default"] = `/${routing.defaultLocale}${path}`;
+  for (const locale of locales) languages[locale] = `/${locale}${path}`;
+  const fallback = locales.includes(routing.defaultLocale)
+    ? routing.defaultLocale
+    : locales[0];
+  languages["x-default"] = `/${fallback}${path}`;
   return languages;
 }
 
@@ -32,6 +42,9 @@ export function pageMetadata({
   description,
   noIndex,
   ogImagePath,
+  ogImageAlt,
+  locales = routing.locales,
+  article,
 }: PageMetadataInput): Metadata {
   const url = `/${locale}${path}`;
   const socialTitle = title ? `${title} | ${siteConfig.name}` : undefined;
@@ -39,7 +52,9 @@ export function pageMetadata({
     url: `/${locale}${ogImagePath ?? ""}/opengraph-image`,
     width: 1200,
     height: 630,
-    alt: `${siteConfig.name}: software engineering interview questions from Junior to Senior`,
+    alt:
+      ogImageAlt ??
+      `${siteConfig.name}: software engineering interview questions from Junior to Senior`,
   };
 
   return {
@@ -47,15 +62,23 @@ export function pageMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: languageAlternates(path),
+      languages: languageAlternates(path, locales),
     },
     openGraph: {
-      type: "website",
+      ...(article
+        ? {
+            type: "article",
+            publishedTime: article.publishedTime,
+            modifiedTime: article.modifiedTime ?? article.publishedTime,
+            authors: [siteConfig.author.url],
+            tags: article.tags,
+          }
+        : { type: "website" }),
       siteName: siteConfig.name,
       url,
       description,
       locale: ogLocales[locale],
-      alternateLocale: routing.locales
+      alternateLocale: locales
         .filter((l) => l !== locale)
         .map((l) => ogLocales[l]),
       images: [image],

@@ -66,6 +66,10 @@ const icons: Record<string, LucideIcon> = {
   Landmark,
 };
 
+export function getCategoryIcon(name: string): LucideIcon {
+  return icons[name] ?? FileCode2;
+}
+
 export function CategoryIcon({
   name,
   color,

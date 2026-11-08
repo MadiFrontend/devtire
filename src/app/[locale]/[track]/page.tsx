@@ -69,20 +69,45 @@ export default async function TrackPage({ params }: Props) {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
+          "@graph": [
             {
-              "@type": "ListItem",
-              position: 1,
-              name: tSeo("home"),
-              item: absoluteUrl(`/${locale}`),
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: tSeo("home"),
+                  item: absoluteUrl(`/${locale}`),
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: track.name[loc],
+                  item: absoluteUrl(`/${locale}/${trackId}`),
+                },
+              ],
             },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: track.name[loc],
-              item: absoluteUrl(`/${locale}/${trackId}`),
-            },
+            ...(stats.length
+              ? [
+                  {
+                    "@type": "CollectionPage",
+                    name: tSeo("trackTitle", { name: track.name[loc] }),
+                    description: track.description[loc],
+                    url: absoluteUrl(`/${locale}/${trackId}`),
+                    inLanguage: locale,
+                    isPartOf: { "@id": `${absoluteUrl()}/#website` },
+                    mainEntity: {
+                      "@type": "ItemList",
+                      itemListElement: stats.map((cat, i) => ({
+                        "@type": "ListItem",
+                        position: i + 1,
+                        name: cat.name[loc],
+                        url: absoluteUrl(`/${locale}/${trackId}/${cat.id}`),
+                      })),
+                    },
+                  },
+                ]
+              : []),
           ],
         }}
       />

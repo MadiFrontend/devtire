@@ -13,6 +13,7 @@ Bilingual (English / Persian) software engineering interview practice. Pick a tr
 - Search across all questions
 - Bookmarks and per-level progress, saved in your browser (no account, no backend)
 - Light and dark themes
+- Bilingual blog with interview prep guides
 
 ## Tracks
 
@@ -64,7 +65,27 @@ src/data/                 Question banks (frontend)
 src/data/backend/         Backend question banks
 src/data/sysdesign/       System design question banks
 src/lib/storage.ts        localStorage for progress, bookmarks, and feedback
+content/blog/<slug>/      Articles (fa.md, en.md)
 ```
+
+## Adding articles
+
+Create `content/blog/<slug>/fa.md` and/or `en.md`. The slug becomes the URL (`/fa/blog/<slug>`), and a post only exists in the languages that have a file.
+
+```md
+---
+title: "Title, up to about 60 characters"
+description: "Meta description, 140-160 characters"
+date: "2026-11-09"
+updated: "2026-12-01" # optional
+categories: ["react", "javascript"] # category ids, shown as related quizzes
+tags: ["react", "interview"]
+---
+
+Intro paragraph, then `##` sections. No `#` heading; the page renders the title.
+```
+
+Link to quizzes with relative paths in the same language, e.g. `/fa/frontend/react/junior`. Articles are added to the blog index, sitemap and `llms.txt` automatically.
 
 ## Adding questions
 

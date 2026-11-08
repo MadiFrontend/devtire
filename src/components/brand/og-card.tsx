@@ -8,10 +8,18 @@ type OgCardProps = {
   subtitle: string;
   chips: string[];
   stripe?: string;
+  titleSize?: number;
 };
 
 /** Text stays Latin-only: ImageResponse's bundled font has no Persian glyphs. */
-export function OgCard({ eyebrow, title, subtitle, chips, stripe = "#6366f1" }: OgCardProps) {
+export function OgCard({
+  eyebrow,
+  title,
+  subtitle,
+  chips,
+  stripe = "#6366f1",
+  titleSize = 72,
+}: OgCardProps) {
   return (
     <div
       style={{
@@ -65,7 +73,7 @@ export function OgCard({ eyebrow, title, subtitle, chips, stripe = "#6366f1" }: 
         <div
           style={{
             display: "flex",
-            fontSize: 72,
+            fontSize: titleSize,
             fontWeight: 800,
             lineHeight: 1.05,
             letterSpacing: -2,

@@ -4,8 +4,25 @@
     "description": "Practice software engineering interview questions by track: frontend, backend, system design, algorithms and more. Multiple-choice questions from Junior to Senior with instant feedback and clear explanations.",
     "keywords": "software engineering interview questions, frontend interview questions, backend interview questions, system design interview, algorithms interview questions, data structures, javascript interview questions, react interview questions, typescript interview questions, next.js interview questions, multiple choice quiz, junior developer, senior developer, interview prep"
   },
+  "blog": {
+    "title": "Articles",
+    "subtitle": "Practical guides to technical interview prep: what gets asked, what each level is expected to know and how to get ready.",
+    "metaTitle": "Software Engineering Interview Prep Articles",
+    "metaDescription": "Guides to frontend, backend and system design interview prep: frequently asked questions, expectations from Junior to Senior and study plans.",
+    "empty": "No articles published yet.",
+    "back": "All articles",
+    "readingTime": "{minutes} min read",
+    "by": "By",
+    "toc": "Contents",
+    "practice": "Practice these topics",
+    "questionCount": "{count} questions",
+    "more": "More articles",
+    "coverTrack": "{track} interviews",
+    "coverMixed": "Tech interviews"
+  },
   "nav": {
     "home": "Home",
+    "blog": "Articles",
     "bookmarks": "Bookmarks",
     "feedback": "Feedback",
     "search": "Search questions..."
@@ -17,7 +34,27 @@
     "categories": "Categories",
     "questions": "questions",
     "start": "Start",
-    "tracks": "Tracks"
+    "tracks": "Tracks",
+    "aboutTitle": "What is DevTier?",
+    "aboutText": "DevTier is a free site for software engineering interview preparation. It has {questions} multiple-choice questions across {tracks} live tracks (frontend, backend and system design), split into Junior, Middle and Senior levels. Every question is available in English and Persian, and every answer comes with a full explanation so you learn the why, not just the answer.",
+    "howTitle": "How it works",
+    "step1Title": "Pick a track",
+    "step1Text": "Frontend, backend or system design, depending on the role you are interviewing for.",
+    "step2Title": "Choose your level",
+    "step2Text": "Junior for fundamentals, Middle for real-world scenarios and Senior for architecture and hard trade-offs.",
+    "step3Title": "Practice and learn",
+    "step3Text": "Pick an answer, see right away whether it is correct and read the explanation. Your progress is saved on this device.",
+    "faqTitle": "Frequently asked questions",
+    "faq1q": "Who is DevTier for?",
+    "faq1a": "Developers preparing for technical interviews, from people looking for their first job to experienced engineers interviewing for senior roles.",
+    "faq2q": "Which topics are covered?",
+    "faq2a": "Frontend (HTML & CSS, JavaScript, TypeScript, React, Next.js and more), backend (Node.js, API design, databases, caching, security, message queues and more) and system design (scalability, load balancing, sharding, CAP, case studies and more). Algorithms, software engineering, DevOps and behavioral interviews are coming soon.",
+    "faq3q": "Is DevTier free? Do I need an account?",
+    "faq3a": "Yes, it is completely free and needs no sign-up. Your progress and bookmarks are stored only in your own browser.",
+    "faq4q": "Are the questions in English or Persian?",
+    "faq4a": "Both. You can switch languages at any time. The Persian text keeps technical terms in English, the way they are used at work.",
+    "faq5q": "What is the difference between Junior, Middle and Senior?",
+    "faq5a": "Junior questions test fundamentals, Middle questions focus on applied, real-world scenarios and Senior questions are about architecture, performance and trade-offs."
   },
   "levels": {
     "title": "Choose a level",
@@ -75,7 +112,8 @@
   },
   "footer": {
     "text": "Progress is saved on your device",
-    "madeBy": "Made by"
+    "madeBy": "Made by",
+    "explore": "Tracks and topics"
   },
   "seo": {
     "categoryTitle": "{name} Interview Questions",
@@ -89,7 +127,8 @@
     "home": "Home",
     "trackTitle": "{name} Interview Questions",
     "trackDescription": "{count} multiple-choice {name} interview questions across {topics} topics, from Junior to Senior, with instant feedback and detailed explanations.",
-    "soonDescription": "{name} interview questions are coming soon to DevTier."
+    "soonDescription": "{name} interview questions are coming soon to DevTier.",
+    "levelIntro": "Multiple-choice {name} interview questions for {level} developers: {focus}. Topics: {topics}. Every answer is checked instantly and comes with a full explanation."
   },
   "tracks": {
     "comingSoon": "Coming soon",

@@ -98,6 +98,41 @@ body {
   }
 }
 
+.prose-site {
+  --tw-prose-body: color-mix(in srgb, var(--foreground) 88%, transparent);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--border);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-pre-bg: var(--muted);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  line-height: 1.9;
+}
+
+.prose-site :where(code):not(:where(pre *))::before,
+.prose-site :where(code):not(:where(pre *))::after {
+  content: none;
+}
+
+.prose-site :where(code):not(:where(pre *)) {
+  border-radius: 0.375rem;
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  font-weight: 500;
+}
+
+.prose-site :where(h2, h3) {
+  scroll-margin-top: 6rem;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--accent) 35%, transparent);
 }

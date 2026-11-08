@@ -298,7 +298,7 @@ export const authSecuritySenior = build("auth-security", [
       ["number matching در push و محدود کردن تعداد push، یا مهاجرت به FIDO2", "Number matching in push prompts and limiting push count, or moving to FIDO2"],
       ["ارسال push بیشتر تا کاربر عادت کند", "Sending more pushes so users get used to them"],
       ["حذف کامل MFA", "Removing MFA entirely"],
-      ["جایگزینی push با سؤال امنیتی", "Replacing push with a security question"],
+      ["جایگزینی push با سوال امنیتی", "Replacing push with a security question"],
     ],
     a: [
       "مهاجم با پسورد درست پشت سر هم push می‌فرستد تا کاربر خسته شود و تأیید کند. number matching کاربر را مجبور می‌کند عدد نمایش‌داده‌شده روی صفحه لاگین را وارد کند که مهاجم کنترل آن را دارد ولی کاربر نمی‌بیند.",

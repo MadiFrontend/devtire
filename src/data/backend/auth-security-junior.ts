@@ -16,7 +16,7 @@ export const authSecurityJunior = build("auth-security", [
       ["authentication فقط سمت کلاینت و authorization فقط سمت سرور انجام می‌شود", "Authentication happens only on the client and authorization only on the server"],
     ],
     a: [
-      "authentication (AuthN) به سؤال «تو کی هستی؟» پاسخ می‌دهد و authorization (AuthZ) به سؤال «اجازه انجام این کار را داری؟». معمولاً اول AuthN و سپس AuthZ انجام می‌شود.",
+      "authentication (AuthN) به سوال «تو کی هستی؟» پاسخ می‌دهد و authorization (AuthZ) به سوال «اجازه انجام این کار را داری؟». معمولاً اول AuthN و سپس AuthZ انجام می‌شود.",
       "Authentication (AuthN) answers 'who are you?' and authorization (AuthZ) answers 'are you allowed to do this?'. AuthN normally happens first, then AuthZ.",
     ],
   },
@@ -467,12 +467,12 @@ export const authSecurityJunior = build("auth-security", [
     ],
     options: [
       ["پسورد + کد TOTP از اپ authenticator روی گوشی", "Password + a TOTP code from an authenticator app on the phone"],
-      ["پسورد + پاسخ سؤال امنیتی", "Password + a security question answer"],
+      ["پسورد + پاسخ سوال امنیتی", "Password + a security question answer"],
       ["دو پسورد متفاوت", "Two different passwords"],
       ["پسورد + PIN", "Password + PIN"],
     ],
     a: [
-      "MFA یعنی ترکیب عوامل از دسته‌های مختلف: چیزی که می‌دانی، چیزی که داری و چیزی که هستی. پسورد، PIN و سؤال امنیتی همه از دسته «دانستن»اند.",
+      "MFA یعنی ترکیب عوامل از دسته‌های مختلف: چیزی که می‌دانی، چیزی که داری و چیزی که هستی. پسورد، PIN و سوال امنیتی همه از دسته «دانستن»اند.",
       "MFA combines factors from different categories: something you know, have, or are. Passwords, PINs, and security questions are all 'know' factors.",
     ],
   },

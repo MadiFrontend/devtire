@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Bookmark, MessageSquareText } from "lucide-react";
+import { Bookmark, MessageSquareText, Newspaper } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -14,6 +14,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   const links = [
+    { href: "/blog" as const, label: t("blog"), icon: Newspaper },
     { href: "/bookmarks" as const, label: t("bookmarks"), icon: Bookmark },
     { href: "/feedback" as const, label: t("feedback"), icon: MessageSquareText },
   ];

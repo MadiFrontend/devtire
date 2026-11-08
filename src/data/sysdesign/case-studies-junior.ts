@@ -7,13 +7,13 @@ export const caseStudiesJunior = build("case-studies", [
     tags: ["interview", "requirements"],
     q: ["در یک مصاحبه system design، معمولاً اولین قدم درست چیست؟", "In a system design interview, what is usually the right first step?"],
     options: [
-      ["روشن کردن requirements و scope با پرسیدن سؤال", "Clarifying requirements and scope by asking questions"],
+      ["روشن کردن requirements و scope با پرسیدن سوال", "Clarifying requirements and scope by asking questions"],
       ["کشیدن فوری دیاگرام کامل با همه سرویس‌ها", "Immediately drawing a full diagram with every service"],
       ["انتخاب دیتابیس و نوشتن schema جداول", "Picking a database and writing the table schema"],
       ["شروع به نوشتن کد برای endpointهای اصلی", "Starting to write code for the main endpoints"],
     ],
     a: [
-      "سؤال‌های مصاحبه عمداً مبهم هستند. بدون توافق روی scope و requirements، ممکن است سیستمی طراحی کنید که مسئله اشتباهی را حل می‌کند.",
+      "سوال‌های مصاحبه عمداً مبهم هستند. بدون توافق روی scope و requirements، ممکن است سیستمی طراحی کنید که مسئله اشتباهی را حل می‌کند.",
       "Interview prompts are intentionally vague. Without agreeing on scope and requirements, you may design a system that solves the wrong problem.",
     ],
   },

@@ -6,8 +6,8 @@ import { ArrowLeft, ArrowUpRight, CalendarDays, Clock, ListTree } from "lucide-r
 import { Link } from "@/i18n/navigation";
 import { getLevelCounts } from "@/data";
 import { CategoryIcon } from "@/components/home/category-icon";
-import { LogoMark } from "@/components/brand/logo";
 import { Markdown } from "@/components/blog/markdown";
+import { PostAuthor } from "@/components/blog/post-author";
 import { PostCard } from "@/components/blog/post-card";
 import { PostCover } from "@/components/blog/post-cover";
 import { ReadingProgress } from "@/components/blog/reading-progress";
@@ -126,7 +126,14 @@ export default async function BlogPostPage({ params }: Props) {
               dateModified: post.updated ?? post.date,
               keywords: post.tags.join(", "),
               image: absoluteUrl(`/${locale}/blog/${slug}/opengraph-image`),
-              author: { "@id": `${absoluteUrl()}/#author` },
+              author: {
+                "@type": "Person",
+                "@id": `${absoluteUrl()}/#author`,
+                name: siteConfig.author.name,
+                url: siteConfig.author.url,
+                jobTitle: siteConfig.author.role,
+                image: absoluteUrl(siteConfig.author.image),
+              },
               publisher: { "@id": `${absoluteUrl()}/#author` },
               isPartOf: { "@id": `${absoluteUrl()}/#website` },
               about: related.map((c) => ({ "@type": "Thing", name: c.name.en })),
@@ -156,18 +163,7 @@ export default async function BlogPostPage({ params }: Props) {
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">{post.description}</p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-            <a
-              href={siteConfig.author.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-medium text-foreground hover:text-accent"
-            >
-              <LogoMark className="size-7" />
-              <span>
-                <span className="text-muted-foreground">{t("by")} </span>
-                {siteConfig.author.name}
-              </span>
-            </a>
+            <PostAuthor by={t("by")} role={t("authorRole")} />
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays className="size-4" />
               <time dateTime={post.date}>{formatPostDate(post.date, loc)}</time>
@@ -199,6 +195,10 @@ export default async function BlogPostPage({ params }: Props) {
           )}
 
           <Markdown content={post.content} />
+
+          <div className="rounded-2xl border border-border/70 bg-card px-5 py-4 sm:px-6">
+            <PostAuthor by={t("by")} role={t("authorRole")} size="lg" />
+          </div>
 
           {related.length > 0 && (
             <section className="rounded-3xl border border-border/70 bg-card p-6 sm:p-8">

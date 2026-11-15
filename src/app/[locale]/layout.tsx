@@ -138,6 +138,8 @@ export default async function LocaleLayout({ children, params }: Props) {
                 "@id": `${absoluteUrl()}/#author`,
                 name: siteConfig.author.name,
                 url: siteConfig.author.url,
+                jobTitle: siteConfig.author.role,
+                image: absoluteUrl(siteConfig.author.image),
                 sameAs: [siteConfig.author.url, siteConfig.author.github],
               },
             ],

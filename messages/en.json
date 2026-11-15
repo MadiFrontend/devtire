@@ -20,7 +20,8 @@
     "coverTrack": "{track} interviews",
     "coverMixed": "Tech interviews",
     "eyebrow": "DevTier blog",
-    "latest": "Latest"
+    "latest": "Latest",
+    "authorRole": "Software Engineer"
   },
   "nav": {
     "home": "Home",

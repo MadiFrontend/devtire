@@ -20,6 +20,7 @@ import { systemDesignMore } from "./more/system-design";
 import { extraQuestions } from "./extra";
 import { backendQuestions } from "./backend";
 import { systemDesignTrackQuestions } from "./sysdesign";
+import { algorithmsQuestions } from "./algorithms";
 
 export * from "./types";
 export * from "./categories";
@@ -45,6 +46,7 @@ export const allQuestions: Question[] = [
   ...extraQuestions,
   ...backendQuestions,
   ...systemDesignTrackQuestions,
+  ...algorithmsQuestions,
 ];
 
 export function getQuestionsByCategory(categoryId: string): Question[] {
@@ -108,10 +110,16 @@ export function getTrackStats() {
   return tracks.map((t) => {
     const trackCategories = getTrackCategories(t.id);
     const ids = new Set(trackCategories.map((c) => c.id));
+    const trackQuestions = allQuestions.filter((q) => ids.has(q.category));
     return {
       ...t,
       categoryCount: trackCategories.length,
-      questionCount: allQuestions.filter((q) => ids.has(q.category)).length,
+      questionCount: trackQuestions.length,
+      levels: {
+        junior: trackQuestions.filter((q) => q.level === "junior").length,
+        middle: trackQuestions.filter((q) => q.level === "middle").length,
+        senior: trackQuestions.filter((q) => q.level === "senior").length,
+      },
     };
   });
 }

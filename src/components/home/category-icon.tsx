@@ -1,21 +1,27 @@
 import {
+  ArrowUpDown,
   Atom,
   Binary,
   Blocks,
   Boxes,
   Braces,
+  BrainCircuit,
   Container,
   Database,
   DatabaseZap,
   FileCode2,
   Gauge,
+  GitFork,
   Globe,
+  Hash,
   Hexagon,
   Landmark,
   Layers,
   Layout,
   Leaf,
   LifeBuoy,
+  Link2,
+  ListOrdered,
   MessagesSquare,
   Monitor,
   Network,
@@ -23,8 +29,10 @@ import {
   RadioTower,
   Scale,
   Server,
+  Share2,
   ShieldCheck,
   Split,
+  Timer,
   Triangle,
   Webhook,
   Workflow,
@@ -64,6 +72,14 @@ const icons: Record<string, LucideIcon> = {
   LifeBuoy,
   RadioTower,
   Landmark,
+  Timer,
+  ListOrdered,
+  Hash,
+  Link2,
+  GitFork,
+  Share2,
+  ArrowUpDown,
+  BrainCircuit,
 };
 
 export function getCategoryIcon(name: string): LucideIcon {
@@ -80,6 +96,7 @@ export function CategoryIcon({
   className?: string;
 }) {
   const Icon = icons[name] ?? FileCode2;
+  const resolved = color === "#000000" ? "var(--foreground)" : color;
   return (
     <span
       className={cn(
@@ -87,8 +104,8 @@ export function CategoryIcon({
         className,
       )}
       style={{
-        background: `color-mix(in srgb, ${color} 18%, transparent)`,
-        color,
+        background: `color-mix(in srgb, ${resolved} 16%, transparent)`,
+        color: resolved,
       }}
     >
       <Icon className="size-6" strokeWidth={1.75} />

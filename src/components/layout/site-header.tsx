@@ -20,10 +20,10 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70">
+      <div className="mx-auto flex max-w-6xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
         <div className="flex items-center justify-between gap-3">
-          <Link href="/" aria-label="DevTier home">
+          <Link href="/" aria-label="DevTier home" className="transition-opacity hover:opacity-90">
             <Logo />
           </Link>
           <div className="flex items-center gap-1 sm:hidden">
@@ -42,30 +42,32 @@ export function SiteHeader() {
               key={href}
               href={href}
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
-                pathname.startsWith(href) && "bg-muted text-foreground",
+                "inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground",
+                pathname.startsWith(href) && "bg-accent/10 text-accent hover:bg-accent/15 hover:text-accent",
               )}
             >
               <Icon className="size-4" />
               {label}
             </Link>
           ))}
-          <LocaleSwitcher />
-          <ThemeToggle />
+          <div className="ms-1 flex items-center gap-0.5 border-s border-border/60 ps-2">
+            <LocaleSwitcher />
+            <ThemeToggle />
+          </div>
         </nav>
 
-        <nav className="flex gap-2 sm:hidden">
+        <nav className="grid grid-cols-3 gap-1.5 sm:hidden">
           {links.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
               href={href}
               className={cn(
-                "inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm",
-                pathname.startsWith(href) && "bg-muted",
+                "inline-flex items-center justify-center gap-1.5 rounded-xl border border-border/70 bg-card/60 px-2.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground",
+                pathname.startsWith(href) && "border-accent/40 bg-accent/10 text-accent",
               )}
             >
-              <Icon className="size-4" />
-              {label}
+              <Icon className="size-3.5 shrink-0" />
+              <span className="truncate">{label}</span>
             </Link>
           ))}
         </nav>

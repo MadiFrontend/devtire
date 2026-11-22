@@ -21,7 +21,7 @@ export function GET() {
 
   const body = `# ${siteConfig.name}
 
-> Free, bilingual (English and Persian) software engineering interview practice. ${total} multiple-choice questions across frontend, backend and system design, each at Junior, Middle and Senior level, with instant feedback and a full explanation for every answer. No account needed.
+> Free, bilingual (English and Persian) software engineering interview practice. ${total} multiple-choice questions across frontend, backend, system design and algorithms, each at Junior, Middle and Senior level, with instant feedback and a full explanation for every answer. No account needed.
 
 - English: ${absoluteUrl("/en")}
 - Persian: ${absoluteUrl("/fa")}

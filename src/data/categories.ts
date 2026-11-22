@@ -289,6 +289,102 @@ export const categories: CategoryMeta[] = [
     },
     tags: ["url-shortener", "news-feed", "chat"],
   },
+  {
+    id: "complexity",
+    track: "algorithms",
+    icon: "Timer",
+    color: "#ec4899",
+    name: { fa: "پیچیدگی و Big O", en: "Complexity & Big O" },
+    description: {
+      fa: "زمان و حافظه، نمادهای asymptotic، trade-offها و تحلیل حلقه‌ها و recursion",
+      en: "Time & space, asymptotic notation, trade-offs and analyzing loops & recursion",
+    },
+    tags: ["big-o", "time", "space"],
+  },
+  {
+    id: "arrays-strings",
+    track: "algorithms",
+    icon: "ListOrdered",
+    color: "#f43f5e",
+    name: { fa: "آرایه و رشته", en: "Arrays & Strings" },
+    description: {
+      fa: "two pointers، sliding window، prefix sum، in-place و تکنیک‌های رشته",
+      en: "Two pointers, sliding window, prefix sums, in-place tricks & string techniques",
+    },
+    tags: ["two-pointers", "sliding-window", "prefix-sum"],
+  },
+  {
+    id: "hashing",
+    track: "algorithms",
+    icon: "Hash",
+    color: "#d946ef",
+    name: { fa: "Hash Map و Set", en: "Hash Maps & Sets" },
+    description: {
+      fa: "جداول hash، collision، frequency map، set و الگوهای O(1) lookup",
+      en: "Hash tables, collisions, frequency maps, sets & O(1) lookup patterns",
+    },
+    tags: ["hashmap", "set", "frequency"],
+  },
+  {
+    id: "linked-lists",
+    track: "algorithms",
+    icon: "Link2",
+    color: "#a855f7",
+    name: { fa: "Linked List، Stack و Queue", en: "Linked Lists, Stacks & Queues" },
+    description: {
+      fa: "لیست پیوندی، fast/slow pointers، stack، queue و deque در مسائل کلاسیک",
+      en: "Linked lists, fast/slow pointers, stacks, queues & deques in classic problems",
+    },
+    tags: ["linked-list", "stack", "queue"],
+  },
+  {
+    id: "trees",
+    track: "algorithms",
+    icon: "GitFork",
+    color: "#8b5cf6",
+    name: { fa: "درخت و BST", en: "Trees & BSTs" },
+    description: {
+      fa: "traversal، BST، heap، trie و تعادل درخت در مصاحبه",
+      en: "Traversals, BSTs, heaps, tries & tree balancing for interviews",
+    },
+    tags: ["bst", "heap", "traversal"],
+  },
+  {
+    id: "graphs",
+    track: "algorithms",
+    icon: "Share2",
+    color: "#6366f1",
+    name: { fa: "گراف و پیمایش", en: "Graphs & Traversal" },
+    description: {
+      fa: "BFS، DFS، shortest path، topological sort و تشخیص cycle",
+      en: "BFS, DFS, shortest paths, topological sort & cycle detection",
+    },
+    tags: ["bfs", "dfs", "shortest-path"],
+  },
+  {
+    id: "sorting-searching",
+    track: "algorithms",
+    icon: "ArrowUpDown",
+    color: "#4f46e5",
+    name: { fa: "مرتب‌سازی و جستجو", en: "Sorting & Searching" },
+    description: {
+      fa: "الگوریتم‌های sort، binary search، lower/upper bound و کاربردهای جستجو",
+      en: "Sorting algorithms, binary search, lower/upper bounds & search applications",
+    },
+    tags: ["sorting", "binary-search", "nlogn"],
+  },
+  {
+    id: "dynamic-programming",
+    track: "algorithms",
+    icon: "BrainCircuit",
+    color: "#7c3aed",
+    name: { fa: "بازگشت و برنامه‌نویسی پویا", en: "Recursion & Dynamic Programming" },
+    description: {
+      fa: "memoization، tabulation، knapsack، LCS و الگوهای کلاسیک DP",
+      en: "Memoization, tabulation, knapsack, LCS & classic DP patterns",
+    },
+    tags: ["dp", "memoization", "recursion"],
+  },
 ];
 
 export function getCategory(id: string) {

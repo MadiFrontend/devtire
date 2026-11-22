@@ -41,13 +41,13 @@ export const tracks: TrackMeta[] = [
     id: "algorithms",
     icon: "Binary",
     color: "#ec4899",
-    status: "soon",
+    status: "live",
     name: { fa: "الگوریتم و ساختار داده", en: "Algorithms & Data Structures" },
     description: {
       fa: "پیچیدگی زمانی، آرایه، hash map، درخت، گراف و برنامه‌نویسی پویا",
       en: "Big O, arrays, hash maps, trees, graphs and dynamic programming",
     },
-    topics: ["Big O", "Arrays", "Trees", "Graphs", "DP"],
+    topics: ["Big O", "Arrays", "Hashing", "Trees", "Graphs", "DP"],
   },
   {
     id: "software-engineering",
